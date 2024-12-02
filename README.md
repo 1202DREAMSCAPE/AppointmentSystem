@@ -89,6 +89,7 @@ To run the program offline, follow the following steps:
     pip install django
     pip install django-widget-tweaks
     pip install xhtml2pdf
+    pip install -r requirements.txt 
     ```
 
 * Download this project zip folder and extract it
