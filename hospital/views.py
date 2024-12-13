@@ -215,14 +215,14 @@ def register_adm_view(request):
     if request.method=="POST":
         form = AdminRegisterForm(request.POST, request.FILES)
         if form.is_valid():     #get data from form (if it is valid)
-            db = form.cleaned_data.get('dob')   #get date of birth from form
-            today = date.today()
-            ag =  today.year - db.year - ((today.month, today.day) < (db.month, db.day))    #calculate age from dob
-            if db < timezone.now().date():  #check if date of birth is valid (happened the previous day or even back)
-                nu = User.objects.create_user(username=form.cleaned_data.get('username'),email=form.cleaned_data.get('email'),password=form.cleaned_data.get('password1'))  #create user
-                adm = Admin(user=nu,firstname=form.cleaned_data.get('firstname'),
+    #         db = form.cleaned_data.get('dob')   #get date of birth from form
+    #         today = date.today()
+    #         ag =  today.year - db.year - ((today.month, today.day) < (db.month, db.day))    #calculate age from dob
+    #         if db < timezone.now().date():  #check if date of birth is valid (happened the previous day or even back)
+            nu = User.objects.create_user(username=form.cleaned_data.get('username'),email=form.cleaned_data.get('email'),password=form.cleaned_data.get('password1'))  #create user
+            adm = Admin(user=nu,firstname=form.cleaned_data.get('firstname'),
                             lastname=form.cleaned_data.get('lastname'),
-                            age=ag,
+                            # age=ag,
                             dob=form.cleaned_data.get('dob'),
                             address=form.cleaned_data.get('address'),
                             city=form.cleaned_data.get('city'),
@@ -230,13 +230,13 @@ def register_adm_view(request):
                             postalcode=form.cleaned_data.get('postalcode'),
                             image=request.FILES['image']
                             )   #create admin
-                adm.save()
-                mpg = Group.objects.get_or_create(name='ADMIN') #add user to admin group
-                mpg[0].user_set.add(nu)
-                return redirect('login_adm.html')
-            else:
-                form.add_error('dob', 'Invalid date of birth.')
-        else:
+            adm.save()
+            mpg = Group.objects.get_or_create(name='ADMIN') #add user to admin group
+            mpg[0].user_set.add(nu)
+            return redirect('login_adm.html')
+            # else:
+            #     form.add_error('dob', 'Invalid date of birth.')
+        else:       
             print(form.errors)
             return render(request,'hospital/Admin/register_adm.html',{'form': form})
     else: 
