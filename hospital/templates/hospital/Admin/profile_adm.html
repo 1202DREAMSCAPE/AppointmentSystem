@@ -169,8 +169,8 @@ h1{
   height: calc(2.75rem + 2px);
   padding: .625rem .75rem;
   transition: all .2s cubic-bezier(.68, -.55, .265, 1.55);
-  color: #28acea;
-  border: 1px solid #cad1d7;
+  color: #000;
+  border: 1px solid #86469c;
   border-radius: .375rem;
   background-color: #fff;
   background-clip: padding-box;
@@ -236,13 +236,13 @@ h1{
   }
 }
 .avatar {
-  font-size: 1rem;
+  font-size: 3rem;
   display: inline-flex;
   width: 48px;
   height: 48px;
   color: #fff;
   border-radius: 50%;
-  background-color: #adb5bd;
+  background-color: #86469c;
   align-items: center;
   justify-content: center;
 }
@@ -270,7 +270,7 @@ h1{
     <div class="logo"><a href="#" class="simple-text logo-normal">
       <img src="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png">
       <br> 
-      GROUP 20
+      DigiCare
       </a></div>
     <div class="sidebar-wrapper">
       <ul class="nav">
@@ -330,7 +330,7 @@ h1{
     <div class="main-content">
       <!-- Header -->
       <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center">
-        <h1 style="color: #28acea; text-align: center; ">Profile</h1>
+        <h1 style="color: #86469c; text-align: center; font-weight:800;">Profile</h1>
         <!-- Mask -->
         <span class="mask bg-gradient-default opacity-8"></span>
         <!-- Header container -->
@@ -345,7 +345,7 @@ h1{
         <div class="container-fluid mt--7">
           <div class="row">
             <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
-              <div class="card card-profile shadow" style="background-color: rgba(220,220,220,0.3);">
+              <div class="card card-profile shadow" style="background-color: rgb(247, 244, 244);">
                 <div class="row justify-content-center">
                   <div class="col-lg-3 order-lg-2">
                     <div class="card-profile-image">
@@ -472,7 +472,7 @@ h1{
                     </div>
                   </p>
                   <div class="form-group">
-                    <button class="btn btn-sm btn-primary" type="submit">Update</button>
+                    <button class="btn btn-sm" type="submit" style="background-color: #86469C; color: white;">Update</button>
                 </div>
                   </div>
   
@@ -482,7 +482,7 @@ h1{
       </div>
   
       <br><br><br>
-      {% include "hospital/Patient/footer.html" %}
+  {% include "hospital/Admin/footer.html" %}
     </div>
   </div>
 </body>

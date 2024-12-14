@@ -179,17 +179,17 @@ padding-right: 15px;}
 }
 
 th {
-    border: 1px solid #28acea;
+    border: 1px solid #86469c;
     border-collapse: collapse;
-    padding:10px;
+    padding:25px;
 }
 
 td {
-    border: 1px solid #28acea;
+    border: 1px solid #86469c;
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
-    padding:10px;
+    padding:15px;
 }
 
 
@@ -235,7 +235,7 @@ td {
     <div class="logo"><a href="#" class="simple-text logo-normal">
       <img src="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png">
       <br> 
-      GROUP 20
+      DigiCare
       </a></div>
     <div class="sidebar-wrapper">
       <ul class="nav">
@@ -299,7 +299,7 @@ td {
 
                         <div class="sps">
 
-                            <h2 class="sps">Admit Details</h2>
+                            <h2 class="sps" style="background-color: #86469C; color: white; font-weight: 700;">Admit Details</h2>
                             <table class="sps">
                                 <thead>
                                     <tr class="sps">
@@ -315,7 +315,7 @@ td {
                                         <td class="sps">{{ p.1 }}</td>
                                         <td class="sps">{{ p.2 }}</td>
                                         <td class="sps">{{ p.3 }}</td>
-                                        <td class="sps"><a class="btn btn-primary btn-xs" href="{% url 'admit_particular_adm.html' p.4  %}">Details</a></td>
+                                        <td class="sps"><a class="btn btn-xs" style="background-color: #86469C; color: white;" href="{% url 'admit_particular_adm.html' p.4  %}">Details</a></td>
                                     </tr>
                                     {% endfor %}
 

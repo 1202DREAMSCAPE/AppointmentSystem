@@ -209,17 +209,17 @@ padding-right: 15px;}
 }
 
 th {
-    border: 1px solid #28acea;
+    border: 1px solid #86489c;
     border-collapse: collapse;
-    padding:10px;
+    padding:30px;
 }
 
 td {
-    border: 1px solid #28acea;
+    border: 1px solid #86469c;
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
-    padding:10px;
+    padding:20px;
 }
 
 
@@ -239,7 +239,7 @@ td {
     <div class="logo"><a href="#" class="simple-text logo-normal">
       <img src="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png">
       <br> 
-      GROUP 20
+      DigiCare
       </a></div>
     <div class="sidebar-wrapper">
       <ul class="nav">
@@ -316,7 +316,7 @@ td {
             </div>
             <div class="screen-body">
               <div class="screen-body-item left">
-                <div class="app-title" style="text-align: left;color: #28acea">
+                <div class="app-title" style="text-align: left;color: #86469c; font-size: 45px; font-weight: 700;">
                  <span>ADD MEDICINES</span>
                 </div>
               </div>
@@ -325,7 +325,7 @@ td {
                   <!-- Very Important csrf Token -->
                   {% csrf_token %}
                   {{ medform.as_p }}
-                  <input type="submit" name="addmeds" value="Add" class='btn btn-primary btn-lg' style="margin-top: 30px">                 
+                  <input type="submit" name="addmeds" value="Add" class='btn btn-lg' style="margin-top: 30px; background-color: #86469c; color: white;">                 
                 </form>
               </div>
             </div>
@@ -333,7 +333,7 @@ td {
         </div>
    
     <br><br><br>
-    <h2>All Medicines</h2>
+    <h1>All Medicines</h1>
     <table class="sps">
         <thead>
         <tr class="sps">
@@ -345,7 +345,7 @@ td {
             <tr>
             <td class="sps"> {{ med.name }}</td>
             <td class="sps">{{ med.price }}</td>
-            <td><a class="btn btn-primary btn-xs" href="{% url 'particular_medtrack.html' med.name %}">Track</a></td>
+            <td><a class="btn btn-xs" style="font-weight: 700; background-color: #86469c; color: white;" href="{% url 'particular_medtrack.html' med.name %}">Track</a></td>
             </tr>
         {% endfor %}
     </table>
@@ -360,7 +360,7 @@ td {
               </div>
               <div class="screen-body">
                 <div class="screen-body-item left">
-                  <div class="app-title" style="text-align: left;color: #28acea">
+                  <div class="app-title" style="text-align: left; color: #86469c; font-size: 45px; font-weight: 700;">
                    <span>EDIT OPERATION COST</span>
                   </div>
                 </div>
@@ -368,18 +368,18 @@ td {
                   <form class="app-form" method="POST" enctype="multipart/form-data">
                   <!-- Very Important csrf Token -->
                   {% csrf_token %}
-                  <label class="form-control-label" for="input-date" style="color: #28acea;"><b>Maintenence Cost</b></label>
+                  <label class="form-control-label" for="input-date" style="color: #fff;"><b>Maintenence Cost</b></label>
                   {{ opf.maintenance|add_class:"form-control form-control-alternative" }}
                   {{ opf.maintenance.errors }}
                     
-                  <label class="form-control-label" for="input-date" style="color: #28acea;"><b>Hospital Fees</b></label>
+                  <label class="form-control-label" for="input-date" style="color: #fff;"><b>Hospital Fees</b></label>
                   {{ opf.hospfee|add_class:"form-control form-control-alternative" }}
                   {{ opf.hospfee.errors }}
 
-                  <label class="form-control-label" for="input-date" style="color: #28acea;"><b>Room Cost(per day)</b></label>
+                  <label class="form-control-label" for="input-date" style="color: #fff;"><b>Room Cost(per day)</b></label>
                   {{ opf.roomfee|add_class:"form-control form-control-alternative" }}
                   {{ opf.roomfee.errors }}
-                    <input name="opcost" type="submit" value="Save" class='btn btn-primary btn-lg' style="margin-top: 30px">
+                    <input name="opcost" type="submit" value="Save" class='btn  btn-lg' style="margin-top: 30px; background-color: #86469c; color: white;">
                   </form>
                 </div>
               </div>
@@ -387,7 +387,8 @@ td {
           </div>
     
     <br><br><br>
-    <h2>Operation Costs</h2>
+   
+    <h1>Operation Costs</h1>
     <table class="sps">
         <thead>
         <tr class="sps">
