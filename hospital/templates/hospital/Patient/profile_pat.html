@@ -18,9 +18,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" type="image/png" href="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png">
+  <link rel="icon" type="image/png" href="{% static 'assets/img/logos1.png'%}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>Hospital Management System</title>
+  <title>Salon Appointment System</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -169,10 +169,10 @@ h1{
   height: calc(2.75rem + 2px);
   padding: .625rem .75rem;
   transition: all .2s cubic-bezier(.68, -.55, .265, 1.55);
-  color: #28acea;
+  color: #8b0348;
   border: 1px solid #cad1d7;
   border-radius: .375rem;
-  background-color: #fff;
+  background-color: #fff; <!-- Profile Field Background Color -->
   background-clip: padding-box;
   box-shadow: none;
 }
@@ -240,9 +240,9 @@ h1{
   display: inline-flex;
   width: 48px;
   height: 48px;
-  color: #fff;
+  color: #ffcdea;
   border-radius: 50%;
-  background-color: #adb5bd;
+  background-color: #86469c;
   align-items: center;
   justify-content: center;
 }
@@ -262,16 +262,16 @@ h1{
   {% include "hospital/Home/preloader.html" %}
 
   <div id="myDiv" class="animate-bottom wrapper" style="display:none;text-align: center;position: relative;">
-    <div class="sidebar" data-color="azure" data-background-color="black" data-image="{% static 'assets/img/sidebar-2.jpg'%}">
+    <div class="sidebar" data-color="azure" data-background-color="black" data-image="{% static 'assets/img/logos1.png'%}">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
         Tip 2: you can also add an image using data-image tag
       -->
       <div class="logo"><a href="#" class="simple-text logo-normal">
-        <img src="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png">
+        <img src="{% static 'assets/img/logos1.png'%}">
         <br> 
-      GROUP 20
+        Lumière Sync
       </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -333,7 +333,7 @@ h1{
       <div class="main-content">
         <!-- Header -->
         <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center">
-          <h1 style="color: #28acea; text-align: center; ">Profile</h1>
+          <h1 style="color: #8b0348; text-align: center; ">Profile</h1>
           <!-- Mask -->
           <span class="mask bg-gradient-default opacity-8"></span>
           <!-- Header container -->
