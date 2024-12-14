@@ -63,13 +63,13 @@
     
     .market-update-block {
       padding: 2em 2em;
-      background: #999;
+      background: #fff;
     }
 
     .market-update-block h3 {
       color: #fff;
       font-size: 1.5em;
-      font-family: 'Carrois Gothic', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     .market-update-block h4 {
@@ -141,7 +141,7 @@
     .market-update-right i.fa.fa-user-o,
     i.fa.fa-map-marker {
       font-size: 3em;
-      color: #112240;
+      color: #86469C;
       width: 80px;
       height: 80px;
       background: #fff;
@@ -156,7 +156,7 @@
     .market-update-right i.fa.fa-info-circle,
     i.fa.fa-list-alt {
       font-size: 3em;
-      color: #112240;
+      color: #86469C;
       width: 80px;
       height: 80px;
       background: #fff;
@@ -171,7 +171,7 @@
     .market-update-right i.fa.fa-mobile,
     i.fa.fa-calendar-o {
       font-size: 3em;
-      color: #112240;
+      color: #86469C;
       width: 80px;
       height: 80px;
       background: #fff;
@@ -207,17 +207,17 @@ padding-right: 15px;}
 }
 
 th {
-    border: 1px solid #28acea;
+    border: 1px solid #86469C;
     border-collapse: collapse;
-    padding:10px;
+    padding:25px;
 }
 
 td {
-    border: 1px solid #28acea;
+    border: 1px solid #86469C;
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
-    padding:10px;
+    padding:15px;
 }
 
     </style>
@@ -227,7 +227,7 @@ td {
   {% include "hospital/Home/preloader.html" %}
 
   <div id="myDiv" class="animate-bottom wrapper" style="display:none;text-align: center;position: relative;">
-    <div class="sidebar" data-color="azure" data-background-color="black" data-image="{% static 'assets/img/sidebar-2.jpg'%}">
+    <div class="sidebar" data-color="purple" data-background-color="black" data-image="{% static 'assets/img/sidebar-2.jpg'%}">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -236,7 +236,7 @@ td {
     <div class="logo"><a href="#" class="simple-text logo-normal">
       <img src="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png">
       <br> 
-      GROUP 20
+      DigiCare
       </a></div>
     <div class="sidebar-wrapper">
       <ul class="nav">
@@ -285,7 +285,7 @@ td {
          <li class="nav-item ">
           <a class="nav-link" href="{% url 'logout' %}">
             <i class="material-icons">logout</i>
-            <p>Logout</p>
+            <p>Sign Out</p>
           </a>
         </li>
       </ul>
@@ -346,15 +346,15 @@ td {
 
   <br>
   <br>
-  <a class="btn btn-primary btn-xs" href="{% url 'opcost.html'  %}">Operation Details</a>
-  <a class="btn btn-primary btn-xs" href="{% url 'covid_vaccine_adm.html'  %}">Covid Vaccination</a>
+  <a class="btn btn-xs" href="{% url 'opcost.html'  %}" style="background-color: #86469C; color: white;">Operation Details</a>
+  <a class="btn btn-xs" href="{% url 'covid_vaccine_adm.html'  %}" style="background-color: #86469C; color: white;">Covid Vaccination</a>
   <br>
   <div class="container sps">
   <div class="sps">
   <center>
-    <div class="sps" style="margin-left:2%;">
+    <div class="sps" style="margin-left:3%;">
      
-        <h2 class="sps">Recent Doctors</h2>
+        <h2 class="sps font-size" style="font-weight: 700; color: white; ">Recent Doctors</h2>
       
       <table class="table sps">
           <tr class="sps">
@@ -384,7 +384,7 @@ td {
 
     <div class="sps">
       
-        <h2 class="sps">Recent Patients</h2>
+        <h2 class="sps" style="font-weight: 700; color: white;">Recent Patients</h2>
       <table class="sps">
         <thead>
           <tr class="sps">

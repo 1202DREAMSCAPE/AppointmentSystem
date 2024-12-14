@@ -46,6 +46,32 @@
     });
   </script>
 </head>
+<style>
+  /* Adjusting the font size for LOG IN */
+  .app-title span {
+    font-size: 45px;
+  }
+
+  /* Adjusting the font size of labels (Username, Password) */
+  .app-form label {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  /* Adjusting the input fields size */
+  .app-form input[type="text"],
+  .app-form input[type="password"] {
+    font-size: 15px;
+    height: 50px;
+    padding: 5px;
+  }
+
+  /* Adjusting the submit button size */
+  .app-form input[type="submit"] {
+    font-size: 18px;
+    padding: 15px 20px;
+  }
+</style>
 
 <body id="jhamela" class="darkEdition lightEdition">
   <!-- Navbar -->
@@ -70,33 +96,34 @@
         </div>
         <div class="screen-body">
           <div class="screen-body-item left">
-            <div class="app-title" style="text-align: left;color: #28acea">
-              <span>LOGIN</span>
+            <div class="app-title" style="text-align: left; color: #86469c; font-weight: 800;">
+              <span>LOG IN</span>
             </div>
           </div>
           <div class="screen-body-item sps">
             <form class="app-form" method="POST" enctype="multipart/form-data">
               {% csrf_token %}
               {{ form.as_p}}
-              <input type="submit" value="Login" class='btn btn-primary btn-lg' style="margin-top: 30px;margin-bottom: 50px">
+              <input type="submit" value="Login" class='btn btn-lg' style="margin-top: 30px;margin-bottom: 50px; background-color: #86469C; color: white;">
             </form>
 
             <div class="border-top pt-3">
-                  <div class="text-muted">
-                     Need an account? <a class="ml-2" href="{% url 'register_adm.html' %}">Sign Up Now</a>
-                  </div>
-                  <div class="text-muted">
-                      Forgot password? <a class="ml-2" href="{% url 'password_reset' %}">Reset Password</a>
-                  </div>
-            </div>
+              <div class="text-muted">
+                  Need an account? <a class="ml-4" href="{% url 'register_adm.html' %}" style="color: #86469C;"> Sign Up</a>
+              </div>
+              <div class="text-muted">
+                  Forgot password? <a class="ml-4" href="{% url 'password_reset' %}" style="color: #86469C;"> Reset Password</a>
+              </div>
+          </div>
+          
           </div>
         </div>
       </div>
     </div>
   </center>
 
-  {% include "hospital/Home/footer.html" %}
-  </div>
+  {% include "hospital/Admin/footer.html" %}
+</div>
   <!--   Core JS Files   -->
   <script src="{% static 'assets/js/core/jquery.min.js' %}"></script>
   
@@ -280,3 +307,4 @@
 </body>
 
 </html>
+
