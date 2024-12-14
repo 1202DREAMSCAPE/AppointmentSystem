@@ -133,7 +133,7 @@ a {
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
   color: #ffffff;
-  background-color: #2196f3;
+  background-color: #8b0348;
 }
 
 .nav-fill .nav-item {
@@ -484,14 +484,14 @@ a {
 }
 
 .bg-primary {
-  background-color: #2196f3 !important;
+  background-color: #8b0348 !important;
 }
 
 a.bg-primary:hover,
 a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {
-  background-color: #0c7cd5 !important;
+  background-color: #8b0348 !important;
 }
 
 a.bg-secondary:hover,
@@ -616,7 +616,7 @@ button.bg-dark:focus {
 }
 
 .border-primary {
-  border-color: #2196f3 !important;
+  border-color: #8b0348 !important;
 }
 
 .border-secondary {
