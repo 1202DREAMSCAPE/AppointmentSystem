@@ -25,10 +25,10 @@
     <link
       rel="icon"
       type="image/png"
-      href="{% static 'assets/img/favicon.png'%}"
+      href="{% static 'assets/img/logos1.png'%}"
     />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Hospital Management System</title>
+    <title>Salon Appointment System</title>
     <meta
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"
       name="viewport"
@@ -88,13 +88,13 @@ padding-right: 15px;}
 }
 
 th {
-    border: 1px solid #28acea;
+    border: 1px solid #8b0348;
     border-collapse: collapse;
     padding:10px;
 }
 
 td {
-    border: 1px solid #28acea;
+    border: 1px solid #8b0348;
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
@@ -115,7 +115,7 @@ td {
         class="sidebar"
         data-color="azure"
         data-background-color="black"
-        data-image="{% static 'assets/img/sidebar-2.jpg'%}"
+        data-image="{% static 'assets/img/logos1.png'%}"
       >
         <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -125,10 +125,10 @@ td {
         <div class="logo">
           <a href="#" class="simple-text logo-normal">
             <img
-              src="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png"
+              src="{% static 'assets/img/logos1.png'%}"
             />
             <br />
-            GROUP 20
+            Lumière Sync
           </a>
         </div>
         <div class="sidebar-wrapper">
@@ -190,15 +190,15 @@ td {
         <!-- End Navbar -->
         <br /><br />
         
-        <a
+        <!-- <a
           class="btn btn-primary btn-round btn-lg"
           href="{% url 'covidvaccine.html' %}"
           ><b>Apply for Coronvirus Vaccine</b></a
         >
-        
-        <br /><br /><br />
+      
+        <br /><br /><br /> -->
 
-       
+      
         <div class="container">
           <div
             class="screen"
@@ -211,7 +211,7 @@ td {
             </div>
             <div class="screen-body">
               <div class="screen-body-item left">
-                <div class="app-title" style="text-align: left; color: #28acea">
+                <div class="app-title" style="text-align: left; color: #8b0348">
                   <span>Book Appointment</span>
                 </div>
               </div>
