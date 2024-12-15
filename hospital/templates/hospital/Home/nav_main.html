@@ -1,12 +1,10 @@
-{% load static %}
-<nav class="bg-white shadow-md">
-  <div class="container mx-auto flex justify-between items-center py-4 px-6">
-    <div class="flex items-center">
-      <img src="{% static 'assets/img/logodigi.png' %}" alt="Logo" class="w-10 h-10 mr-3">
-      <span class="text-xl font-bold" style="font-family: 'Poppins', sans-serif;">DigiCare PH</span>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3a0d509 (final)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +17,7 @@
             font-size: 1.2em;
             color: #8b0348 !important;
     	}
+<<<<<<< HEAD
 =======
     <div class="flex space-x-6 items-center">
       <a href="#" class="text-gray-600 hover:text-blue-500" style="font-family: 'Nunito Sans', sans-serif;">Services</a>
@@ -28,3 +27,53 @@
 </nav>
 >>>>>>> 2d8746d (push)
 
+=======
+
+    	@media (max-width: 550px){
+    	.navbar-nav{
+    		flex-direction: column !important;
+    	}
+    	
+    	#locha{
+    		align-items: center;
+    	}
+    	.navbar-wrapper{
+    		width: 100vw;
+    		display: flex;
+    		justify-content: center;
+    	}
+    	#ulfat{
+    		width: 100vw;
+    		align-items: center;
+    	}
+    	.navbar-wrapper p{
+    		display: none;
+    	}
+    	.navbar-wrapper img{
+    		margin-left: -5%;
+    	}
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-transparent fixed-top">
+        <div id="locha" class="container-fluid">
+            <div class="navbar-wrapper">
+                <img src="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png" height="90" width="110">
+                <p class="sps">Group 20</p>
+            </div>
+            <div id="ulfat">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link sps" href="{% url 'home.html' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link sps" href="{% url 'login.html' %}">Login/Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+</body>
+
+</html>
+>>>>>>> 3a0d509 (final)
