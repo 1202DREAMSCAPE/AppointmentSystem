@@ -185,52 +185,41 @@
         font-size: 2.5rem;
       }
     }
-
-  .brand
-  {
-    padding-bottom: 200px;
-  }
-
-  .btn-primary
-  {
-    max-width: 100px;
-  }
-
   </style>
 </head>
 
 <body>
   <!-- Navbar -->
-  {% include "hospital/Home/preloader.html" %}
-  <div id="myDiv" class="animate-bottom" style="display:none;">
-  {% include "hospital/Home/nav_main.html" %}
-  <!-- End Navbar -->
-
-  <div class="container" style="text-align: center;position: relative;">
-    <!-- <div class="page-header-image" style="background-image: url('https://images.unsplash.com/photo-1470219556762-1771e7f9427d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OHx8fGVufDB8fHw%3D&w=1000&q=80');"></div> -->
-      <div class="container mx-auto">
-        <div class="brand">
-          <h1 class="sps"><center>Login / Sign Up</center></h1><br><br><br>
-
-
-          <div class="flex-container" style="box-sizing: border-box;">
-          <div class="logincards" style="margin-top: 50px;">
-          	<img src="{%static 'assets/img/patient.png' %}" style="border-radius: 50%" width="250" height="250">
-          	<div style="display: block;margin-top: 50px"><a href="{% url 'register_pat.html' %}" class="btn btn-primary btn-round btn-lg">Patient</a></div>
-          </div>
-          <!-- <div class="col-md-4 col-sm-12"> -->
-          <div class="logincards" style="margin-top: 50px;">
-          	<img src="{%static 'assets/img/admin.png' %}" style="border-radius: 50%" width="250" height="250">
-          	<div style="display: block;margin-top: 50px"><a href="{% url 'register_adm.html' %}" class="btn btn-primary btn-round btn-lg">Admin</a></div>
-          </div>
-          <!-- <div class="col-md-4 col-sm-12"> -->
-          <div class="logincards" style="margin-top: 50px;">
-          	<img src="{%static 'assets/img/doctor.png' %}" style="border-radius: 50%" width="250" height="250">
-          	<div style="display: block;margin-top: 50px"><a href="{% url 'register_doc.html' %}" class="btn btn-primary btn-round btn-lg">Doctor</a></div>
-          </div>
-        </div>
-
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="{% static 'assets/img/logodigi.png' %}" alt="Logo" class="w-10 h-10 mr-3">
+        <span class="text-xl text-black font-bold" style="font-family: 'Poppins', sans-serif;">DigiCare PH</span>
       </div>
+
+      <!-- Navigation Links -->
+      <div class="flex space-x-6 items-center">
+        <a href="#" class="text-gray-600 hover:text-blue-500">Services Offered</a>
+        <a href="{% url 'login.html' %}" class="text-gray-600 hover:text-blue-500">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Welcome to DigiCare PH</h1>
+    <p>Choose your role to get started</p>
+  </div>
+
+  <!-- Content -->
+  <div class="flex-container">
+    <!-- Patient Card -->
+    <div class="logincards">
+      <img src="{% static 'assets/img/patient.png' %}" alt="Patient">
+      <h2>Patient</h2>
+      <a href="{% url 'register_pat.html' %}" class="btn-primary">Select</a>
+    </div>
 
   <nav class="bg-white shadow-md">
     <div class="container mx-auto flex justify-between items-center py-4 px-6">
@@ -263,8 +252,11 @@
       <a href="{% url 'register_pat.html' %}" class="btn-primary">Select</a>
     </div>
 
-  <br><br>
-  {% include "hospital/Home/footer.html" %}
+    <!-- Doctor Card -->
+    <div class="logincards">
+      <img src="{% static 'assets/img/doctor.png' %}" alt="Doctor">
+      <h2>Doctor</h2>
+      <a href="{% url 'register_doc.html' %}" class="btn-primary">Select</a>
     </div>
 </div>
   <!--   Core JS Files   -->
