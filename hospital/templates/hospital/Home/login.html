@@ -5,299 +5,193 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    Login
-  </title>
+  <title>Login</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
-    <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <!-- Fonts and icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600|Poppins:700,900" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
-  <!-- CSS Files -->
-  <link href="{% static 'assets/css/material-dashboard.css'%}" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <!-- Place this tag in your head or just before your close body tag. -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      var dragTheme = window.localStorage.getItem('checkbox');
-      if(dragTheme==="true"){
-          $("#jhamela").removeClass("darkEdition").css("background-color", "#FFCDEA");
-          window.localStorage.setItem('checkbox', true);
-          var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme);
-          $('#checkbox').prop('checked', true);
-      }
-      $("#checkbox").click(function(){
-        if($('#checkbox').prop("checked")){
-          $("#jhamela").removeClass("darkEdition").css("background-color", "#FFCDEA");
-          window.localStorage.setItem('checkbox', true);
-          var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme);
-        }
-        else{
-          $("#jhamela").addClass("darkEdition").css("background-color", "#FFCDEA");
-          window.localStorage.setItem('checkbox', false);
-          var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme);
-        }
-      });
-    });
-  </script>
-  <style type="text/css">
+  <!-- tailwind para sa header and others -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    .flex-container
-    {
+  <style>
+    body {
+      background-color: #FFDEEA; /* Lightest color from the palette */
+      font-family: 'Nunito Sans', sans-serif;
+      color: #86469C; /* Dark purple from the palette */
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: #BC7FCD; /* Purple from the palette */
+      color: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar a {
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      margin-right: 20px;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #FFCDEA;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: 3rem;
+      color: #86469C;
+    }
+
+    .hero p {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 1.2rem;
+      color: #BC7FCD;
+    }
+
+    .flex-container {
       display: flex;
       flex-direction: row;
       justify-content: space-around;
+      gap: 30px;
+      margin: 40px auto;
+      max-width: 1200px;
+      flex-wrap: wrap;
     }
 
+    .logincards {
+      background-color: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 300px;
+    }
 
-    /* Responsive layout - makes a one column layout instead of a two-column layout */
-    @media (max-width: 800px)
-    {
-      .flex-container
-      {
+    .logincards:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .logincards img {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      margin-bottom: 20px;
+    }
+
+    .logincards h2 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #86469C;
+    }
+
+    .btn-primary {
+      background-color: #FB9AD1; /* Pink from the palette */
+      color: white;
+      padding: 15px 30px;
+      border-radius: 25px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #BC7FCD; /* Medium purple on hover */
+    }
+
+    footer {
+      background-color: #86469C; /* Deep purple */
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 800px) {
+      .flex-container {
         flex-direction: column;
-        justify-content: center;
-        /* align-self: center;    <---- REMOVE */
-        align-items: center;
+        gap: 20px;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
       }
     }
-
-  .brand
-  {
-    padding-bottom: 200px;
-  }
-
-  .btn-primary
-  {
-    max-width: 100px;
-  }
-
   </style>
 </head>
 
-<body id="jhamela" class="darkEdition lightEdition">
+<body>
   <!-- Navbar -->
-  {% include "hospital/Home/preloader.html" %}
-  <div id="myDiv" class="animate-bottom" style="display:none;">
-  {% include "hospital/Home/nav_main.html" %}
-  <!-- End Navbar -->
-
-  <div class="container" style="text-align: center;position: relative;">
-    <!-- <div class="page-header-image" style="background-image: url('https://images.unsplash.com/photo-1470219556762-1771e7f9427d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OHx8fGVufDB8fHw%3D&w=1000&q=80');"></div> -->
-      <div class="container mx-auto">
-        <div class="brand">
-          <h1 class="sps"><center>Login / Sign Up</center></h1><br><br><br>
-
-
-          <div class="flex-container" style="box-sizing: border-box;">
-          <div class="logincards" style="margin-top: 50px;">
-          	<img src="{%static 'assets/img/patient.png' %}" style="border-radius: 50%" width="250" height="250">
-          	<div style="display: block;margin-top: 50px"><a href="{% url 'register_pat.html' %}" class="btn btn-primary btn-round btn-lg">Patient</a></div>
-          </div>
-          <!-- <div class="col-md-4 col-sm-12"> -->
-          <div class="logincards" style="margin-top: 50px;">
-          	<img src="{%static 'assets/img/admin.png' %}" style="border-radius: 50%" width="250" height="250">
-          	<div style="display: block;margin-top: 50px"><a href="{% url 'register_adm.html' %}" class="btn btn-primary btn-round btn-lg">Admin</a></div>
-          </div>
-          <!-- <div class="col-md-4 col-sm-12"> -->
-          <div class="logincards" style="margin-top: 50px;">
-          	<img src="{%static 'assets/img/doctor.png' %}" style="border-radius: 50%" width="250" height="250">
-          	<div style="display: block;margin-top: 50px"><a href="{% url 'register_doc.html' %}" class="btn btn-primary btn-round btn-lg">Doctor</a></div>
-          </div>
-        </div>
-
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="{% static 'assets/img/logodigi.png' %}" alt="Logo" class="w-10 h-10 mr-3">
+        <span class="text-xl text-black font-bold" style="font-family: 'Poppins', sans-serif;">DigiCare PH</span>
       </div>
 
+      <!-- Navigation Links -->
+      <div class="flex space-x-6 items-center">
+        <a href="#" class="text-gray-600 hover:text-blue-500">Services Offered</a>
+        <a href="{% url 'login.html' %}" class="text-gray-600 hover:text-blue-500">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Welcome to DigiCare PH</h1>
+    <p>Choose your role to get started</p>
+  </div>
+
+  <!-- Content -->
+  <div class="flex-container">
+    <!-- Patient Card -->
+    <div class="logincards">
+      <img src="{% static 'assets/img/patient.png' %}" alt="Patient">
+      <h2>Patient</h2>
+      <a href="{% url 'register_pat.html' %}" class="btn-primary">Select</a>
     </div>
 
-  <br><br>
-  {% include "hospital/Home/footer.html" %}
+    <!-- Admin Card -->
+    <div class="logincards">
+      <img src="{% static 'assets/img/admin.png' %}" alt="Admin">
+      <h2>Admin</h2>
+      <a href="{% url 'register_adm.html' %}" class="btn-primary">Select</a>
     </div>
-</div>
-  <!--   Core JS Files   -->
-  <script src="{% static 'assets/js/core/jquery.min.js' %}"></script>
-  <script src="{% static 'assets/js/core/popper.min.js' %}"></script>
-  <script src="{% static 'assets/js/core/bootstrap-material-design.min.js' %}"></script>
-  <script src="https://unpkg.com/default-passive-events"></script>
-  <script src="{% static 'assets/js/plugins/perfect-scrollbar.jquery.min.js' %}"></script>
-  <!-- Place this tag in your head or just before your close body tag. -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!--  Google Maps Plugin    -->
 
- <!-- Chartist JS -->
- <script src="{% static 'assets/js/plugins/chartist.min.js' %}"></script>
- <!--  Notifications Plugin    -->
- <script src="{% static 'assets/js/plugins/bootstrap-notify.js' %}"></script>
- <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <!-- Doctor Card -->
+    <div class="logincards">
+      <img src="{% static 'assets/img/doctor.png' %}" alt="Doctor">
+      <h2>Doctor</h2>
+      <a href="{% url 'register_doc.html' %}" class="btn-primary">Select</a>
+    </div>
+  </div>
 
-  <script>
-    $(document).ready(function() {
-      $().ready(function() {
-        $sidebar = $('.sidebar');
-
-        $sidebar_img_container = $sidebar.find('.sidebar-background');
-
-        $full_page = $('.full-page');
-
-        $sidebar_responsive = $('body > .navbar-collapse');
-
-        window_width = $(window).width();
-
-        $('.fixed-plugin a').click(function(event) {
-          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-          if ($(this).hasClass('switch-trigger')) {
-            if (event.stopPropagation) {
-              event.stopPropagation();
-            } else if (window.event) {
-              window.event.cancelBubble = true;
-            }
-          }
-        });
-
-        $('.fixed-plugin .active-color span').click(function() {
-          $full_page_background = $('.full-page-background');
-
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
-
-          var new_color = $(this).data('color');
-
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-color', new_color);
-          }
-
-          if ($full_page.length != 0) {
-            $full_page.attr('filter-color', new_color);
-          }
-
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.attr('data-color', new_color);
-          }
-        });
-
-        $('.fixed-plugin .background-color .badge').click(function() {
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
-
-          var new_color = $(this).data('background-color');
-
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-background-color', new_color);
-          }
-        });
-
-        $('.fixed-plugin .img-holder').click(function() {
-          $full_page_background = $('.full-page-background');
-
-          $(this).parent('li').siblings().removeClass('active');
-          $(this).parent('li').addClass('active');
-
-
-          var new_image = $(this).find("img").attr('src');
-
-          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            $sidebar_img_container.fadeOut('fast', function() {
-              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-              $sidebar_img_container.fadeIn('fast');
-            });
-          }
-
-          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-            $full_page_background.fadeOut('fast', function() {
-              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-              $full_page_background.fadeIn('fast');
-            });
-          }
-
-          if ($('.switch-sidebar-image input:checked').length == 0) {
-            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-          }
-
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
-          }
-        });
-
-        $('.switch-sidebar-image input').change(function() {
-          $full_page_background = $('.full-page-background');
-
-          $input = $(this);
-
-          if ($input.is(':checked')) {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar_img_container.fadeIn('fast');
-              $sidebar.attr('data-image', '#');
-            }
-
-            if ($full_page_background.length != 0) {
-              $full_page_background.fadeIn('fast');
-              $full_page.attr('data-image', '#');
-            }
-
-            background_image = true;
-          } else {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar.removeAttr('data-image');
-              $sidebar_img_container.fadeOut('fast');
-            }
-
-            if ($full_page_background.length != 0) {
-              $full_page.removeAttr('data-image', '#');
-              $full_page_background.fadeOut('fast');
-            }
-
-            background_image = false;
-          }
-        });
-
-        $('.switch-sidebar-mini input').change(function() {
-          $body = $('body');
-
-          $input = $(this);
-
-          if (md.misc.sidebar_mini_active == true) {
-            $('body').removeClass('sidebar-mini');
-            md.misc.sidebar_mini_active = false;
-
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-
-          } else {
-
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-
-            setTimeout(function() {
-              $('body').addClass('sidebar-mini');
-
-              md.misc.sidebar_mini_active = true;
-            }, 300);
-          }
-
-          // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function() {
-            window.dispatchEvent(new Event('resize'));
-          }, 180);
-
-          // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function() {
-            clearInterval(simulateWindowResize);
-          }, 1000);
-
-        });
-      });
-    });
-  </script>
+  <!-- Footer -->
+  <footer>
+    &copy; 2024 DigiCare PH
+  </footer>
 </body>
 
 </html>
