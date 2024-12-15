@@ -20,7 +20,7 @@ cycler==0.10.0
 decorator==4.4.2
 defusedxml==0.6.0
 distlib==0.3.1
-Django>=3.1.5
+django>=3.1.5
 django-bootstrap-modal-forms==2.1.0
 django-crispy-forms==1.11.1
 django-filter==2.4.0
@@ -96,7 +96,6 @@ scikit-learn==0.24.1
 scipy==1.6.0
 Send2Trash==1.5.0
 six==1.15.0
-sklearn==0.0
 soupsieve==2.2.1
 sqlparse==0.4.1
 tensorboard==2.4.1
@@ -116,6 +115,6 @@ virtualenv==20.3.1
 wcwidth==0.2.5
 webencodings==0.5.1
 Werkzeug==1.0.1
-wget==3.2
 wrapt==1.12.1
 xhtml2pdf==0.2.5
+gunicorn
