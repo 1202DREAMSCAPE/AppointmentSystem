@@ -1,19 +1,5 @@
 {% load static %}
 {% load widget_tweaks %}
-<!--
-=========================================================
-* Material Dashboard Dark Edition - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-dark
-* Copyright 2019 Creative Tim (http://www.creative-tim.com)
-
-* Coded by www.creative-tim.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,39 +16,13 @@
   <link href="{% static 'assets/css/material-dashboard.css'%}" rel="stylesheet" />
   <link href="{% static 'assets/css/form.css'%}" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      var dragTheme = window.localStorage.getItem('checkbox');
-      if(dragTheme==="true"){
-        $("#jhamela").removeClass("darkEdition");
-          window.localStorage.setItem('checkbox', true);
-          var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme);
-          $("#checkbox").click();
-      }
-      $("#checkbox").click(function(){
-        if($('#checkbox').prop("checked")){
-          $("#jhamela").removeClass("darkEdition");
-          window.localStorage.setItem('checkbox', true);
-          var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme); 
-        }
-        else{
-          $("#jhamela").addClass("darkEdition");
-          window.localStorage.setItem('checkbox', false);
-          var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme); 
-        }
-      });
-    });
-  </script>
 </head>
 
-<body id="jhamela" class="darkEdition lightEdition">
+<body >
   {% include "hospital/Home/preloader.html" %}
 
   <div id="myDiv" class="animate-bottom wrapper" style="display:none;text-align: center;position: relative;">
-    <div class="sidebar" data-color="azure" data-background-color="black" data-image="{% static 'assets/img/sidebar-2.jpg'%}">
+    <div class="sidebar" data-color="azure" data-background-color="black" style="background-color:#86469C;" data-image="{% static 'assets/img/sidebar-2.jpg'%}">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -131,11 +91,11 @@
       <!-- Navbar -->
        <form method="post">
         {% csrf_token %}
-        <div class="container register-formm sps">
+        <div class="container register-formm sps" >
           <div class="form">
             <div class="form-content">
               
-      <div class="container">
+      <div class="container" >
           <div
             class="screen"
             style="width: 70%; margin-left: auto; margin-right: auto"
@@ -145,9 +105,9 @@
                 <img src="{% static 'assets/img/btn.png' %}" height="20px" />
               </div>
             </div>
-            <div class="screen-body">
+            <div class="screen-body" style="background-color:#ffcdea;">
               <div class="screen-body-item left">
-                <div class="app-title" style="text-align: left; color: #86469C; font-weight: 500; font-size:45px;">
+                <div class="app-title" style="text-align:center; color: #86469C; font-weight: 900; font-size:45px;">
                   <span>Book Appointment</span>
                 </div>
               </div>
@@ -159,7 +119,7 @@
                     type="submit"
                     value="Book"
                     class="btn btn-lg" 
-                    style="margin-top: 30px; background-color: #86469C; color: white;"
+                    style="margin-top: 30px; background-color: #fb9ad1; color: black;"
                   />
                 </form>
               </div>
@@ -170,8 +130,8 @@
       <br>
       <br>
       <br>
-      <a class="btn btn-round btn-lg" style="background-color: #86469C; color: white;" href="{% url 'approve_appoint.html' %}"target="_blank" ><b>Approve Appointment</b></a>
-      <a class="btn btn-round btn-lg" style="background-color: #86469C; color: white;" href="{% url 'appoint_view_adm.html' %}" target="_blank"><b>View Appointment Details</b></a>
+      <a class="btn btn-round btn-lg" style="background-color: #fb9ad1; color: black;" href="{% url 'approve_appoint.html' %}"target="_blank" ><b>Approve Appointment</b></a>
+      <a class="btn btn-round btn-lg" style="background-color: #fb9ad1; color: black;" href="{% url 'appoint_view_adm.html' %}" target="_blank"><b>View Appointment Details</b></a>
 
       
       <!-- End Navbar -->

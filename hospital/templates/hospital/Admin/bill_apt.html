@@ -1,19 +1,5 @@
 {% load static %}
 {% load widget_tweaks %}
-<!--
-=========================================================
-* Material Dashboard Dark Edition - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-dark
-* Copyright 2019 Creative Tim (http://www.creative-tim.com)
-
-* Coded by www.creative-tim.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,32 +17,6 @@
   <link href="{% static 'assets/css/material-dashboard.css'%}" rel="stylesheet" />
   <link href="{% static 'assets/css/form.css'%}" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      var dragTheme = window.localStorage.getItem('checkbox');
-      if(dragTheme==="true"){
-        $("#jhamela").removeClass("darkEdition");
-          window.localStorage.setItem('checkbox', true);
-          var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme);
-          $("#checkbox").click();
-      }
-      $("#checkbox").click(function(){
-        if($('#checkbox').prop("checked")){
-          $("#jhamela").removeClass("darkEdition");
-          window.localStorage.setItem('checkbox', true);
-          var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme); 
-        }
-        else{
-          $("#jhamela").addClass("darkEdition");
-          window.localStorage.setItem('checkbox', false);
-          var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme); 
-        }
-      });
-    });
-  </script>
   <style>
   @page {
       size: A4;
@@ -175,11 +135,11 @@
 
 </head>
 
-<body id="jhamela" class="darkEdition lightEdition">
+<body>
   {% include "hospital/Home/preloader.html" %}
 
   <div id="myDiv" class="animate-bottom wrapper" style="display:none;text-align: center;position: relative;">
-    <div class="sidebar" data-color="azure" data-background-color="black" data-image="{% static 'assets/img/sidebar-1.jpg'%}">
+    <div class="sidebar" data-color="azure" data-background-color="black"  style="background-color: #86469C;" data-image="{% static 'assets/img/sidebar-1.jpg'%}">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -188,9 +148,9 @@
     <div class="logo"><a href="#" class="simple-text logo-normal">
       <img src="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png">
       <br> 
-      GROUP 20
+      DigiCare
       </a></div>
-    <div class="sidebar-wrapper">
+    <div class="sidebar-wrapper" style="background-color: #86469C;">
       <ul class="nav">
         <li class="nav-item ">
             <a class="nav-link" href="{% url 'dashboard_adm.html' %}">
@@ -245,7 +205,7 @@
   </div>
     <div class="main-panel">
       
-      <br><br><br><br>
+      <br><br>
       
          
 <!--Rendered function have not been created yet-->
@@ -257,7 +217,7 @@
           <table>
             <tr>
               <td class="title sps">
-                <h4 style="color:skyblue;">Hospital Information Management System</h4>
+                <h4 style="color:#86469C; font-weight: 600;">Hospital Information Management System</h4>
               </td>
                 <br><br>
 
@@ -265,7 +225,7 @@
             </tr>
             <tr>
             <td class="title sps" style="text-align: center">
-              <h5 style="color: rgb(222, 135, 235);">Appointment Bill</h5>
+              <h5 style="color: rgb(222, 135, 235); font-weight: 700;">Appointment Bill</h5>
             </td>
           </tr>
           <br><br>
@@ -344,12 +304,12 @@
     </table>
     
   
-    <a class="btn btn-primary btn-xs" href="{% url 'downloadbill_apt' pk %}">Download</a>
+    <a class="btn  btn-xs" style="background-color: #fb9ad1; color: black;"  href="{% url 'downloadbill_apt' pk %}">Download</a>
   </div>
    </div>
   
   <br><br><br><br><br><br><br><br>
-      {% include "hospital/Patient/footer.html" %}
+  {% include "hospital/Admin/footer.html" %}
     </div>
   </div>
   <!--   Core JS Files   -->

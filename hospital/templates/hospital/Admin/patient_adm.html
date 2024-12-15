@@ -1,18 +1,4 @@
 {% load static %}
-<!--
-=========================================================
-* Material Dashboard Dark Edition - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-dark
-* Copyright 2019 Creative Tim (http://www.creative-tim.com)
-
-* Coded by www.creative-tim.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -103,7 +89,7 @@
         }
         
         .market-update-block.clr-block-3 {
-            background: #1355f9;
+            background: #bc7fcd;
             box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
             transition: 0.5s all;
             -webkit-transition: 0.5s all;
@@ -203,13 +189,13 @@
         }
         
         th {
-            border: 1px solid #86469c;
+            border: 5px solid #86469c;
             border-collapse: collapse;
             padding: 40px;
         }
         
         td {
-            border: 1px solid #86469c;
+            border: 3px solid #86469c;
             border-collapse: collapse;
             margin-left: auto;
             margin-right: auto;
@@ -218,11 +204,11 @@
     </style>
 </head>
 
-<body id="jhamela" class="darkEdition lightEdition">
+<body>
     {% include "hospital/Home/preloader.html" %}
 
     <div id="myDiv" class="animate-bottom wrapper" style="display:none;text-align: center;position: relative;">
-        <div class="sidebar" data-color="azure" data-background-color="black" data-image="{% static 'assets/img/sidebar-2.jpg'%}">
+        <div class="sidebar" data-color="azure" data-background-color="black" style="background-color: #86469C;" data-image="{% static 'assets/img/sidebar-2.jpg'%}">
             <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -315,7 +301,7 @@
             </div>
             <br><br><br><br>
             <center>
-            <a class="btn  btn-xs" style="color:#fff; background-color: #86469c;" href="{% url 'patient_all_view.html' %}">View All Patients</a>
+            <a class="btn  btn-xs" style="background-color: #fb9ad1; color: black;" href="{% url 'patient_all_view.html' %}">View All Patients</a>
             </center>
 
             <br>

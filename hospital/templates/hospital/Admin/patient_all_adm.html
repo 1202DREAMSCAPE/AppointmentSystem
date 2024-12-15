@@ -1,19 +1,5 @@
 {% load static %}
 {% load widget_tweaks %}
-<!--
-=========================================================
-* Material Dashboard Dark Edition - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-dark
-* Copyright 2019 Creative Tim (http://www.creative-tim.com)
-
-* Coded by www.creative-tim.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -222,11 +208,11 @@ td {
   </script>
 </head>
 
-<body id="jhamela" class="darkEdition lightEdition">
+<body>
   {% include "hospital/Home/preloader.html" %}
 
   <div id="myDiv" class="animate-bottom wrapper" style="display:none;text-align: center;position: relative;">
-    <div class="sidebar" data-color="azure" data-background-color="black" data-image="{% static 'assets/img/sidebar-2.jpg'%}">
+    <div class="sidebar" data-color="azure" data-background-color="black" style="background-color: #86469C;" data-image="{% static 'assets/img/sidebar-2.jpg'%}">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -237,7 +223,7 @@ td {
       <br> 
       DigiCare
          </a></div>
-    <div class="sidebar-wrapper">
+    <div class="sidebar-wrapper" style="background-color: #86469C;">
       <ul class="nav">
         <li class="nav-item ">
           <a class="nav-link" href="{% url 'dashboard_adm.html' %}">
