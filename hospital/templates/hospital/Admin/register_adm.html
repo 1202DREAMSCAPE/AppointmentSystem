@@ -101,7 +101,6 @@
 
             <div class="space-x-6">
                 <a href="/" class="text-gray-600 hover:text-blue-500">Home</a>
-                <a href="{% url 'login_adm.html' %}" class="text-gray-600 hover:text-blue-500">Login</a>
             </div>
         </div>
     </nav>
@@ -109,7 +108,10 @@
     <!-- Signup Form -->
     <div class="form-container">
         <h1>Admin Signup</h1>
+        <a href="{% url 'login_adm.html' %}">Already have an account? Sign In</a>
+
         <form method="POST" enctype="multipart/form-data">
+            
             {% csrf_token %}
             <!-- Username, Email -->
             <input type="text" name="username" placeholder="Username" required />
@@ -139,8 +141,8 @@
                 </select>
                 <select name="birth_day" required>
                     <option value="" disabled selected>Day</option>
-                    {% for i in 1|to:31 %}
-                    <option>{{ i }}</option>
+                    {% for i in days %}
+                        <option>{{ i }}</option>
                     {% endfor %}
                 </select>
                 <input type="number" name="birth_year" placeholder="Year" min="1900" max="2024" required />
@@ -162,7 +164,6 @@
 
             <input type="submit" value="Register" />
         </form>
-        <a href="{% url 'login_adm.html' %}">Already have an account? Sign In</a>
     </div>
 
     <!-- Footer -->
