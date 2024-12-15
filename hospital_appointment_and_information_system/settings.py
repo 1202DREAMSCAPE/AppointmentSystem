@@ -142,7 +142,19 @@ EMAIL_HOST_PASSWORD = '20hospital' # host email password required
 EMAIL_RECEIVING_USER = ['siddharth25pandey@gmail.com'] # email on which you will receive messages sent from website
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-MEDIA_URL='/media/'
+# Directory where collectstatic will gather all static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Additional directories to search for static files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# Media files configuration
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
