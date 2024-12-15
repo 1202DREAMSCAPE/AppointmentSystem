@@ -9,12 +9,14 @@
     Login
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+
+    <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
   <!-- CSS Files -->
   <link href="{% static 'assets/css/material-dashboard.css'%}" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -22,7 +24,7 @@
     $(document).ready(function(){
       var dragTheme = window.localStorage.getItem('checkbox');
       if(dragTheme==="true"){
-        $("#jhamela").removeClass("darkEdition");
+          $("#jhamela").removeClass("darkEdition").css("background-color", "#FFCDEA");
           window.localStorage.setItem('checkbox', true);
           var dragTheme = window.localStorage.getItem('checkbox');
           console.log(dragTheme);
@@ -30,23 +32,23 @@
       }
       $("#checkbox").click(function(){
         if($('#checkbox').prop("checked")){
-          $("#jhamela").removeClass("darkEdition");
+          $("#jhamela").removeClass("darkEdition").css("background-color", "#FFCDEA");
           window.localStorage.setItem('checkbox', true);
           var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme); 
+          console.log(dragTheme);
         }
         else{
-          $("#jhamela").addClass("darkEdition");
+          $("#jhamela").addClass("darkEdition").css("background-color", "#FFCDEA");
           window.localStorage.setItem('checkbox', false);
           var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme); 
+          console.log(dragTheme);
         }
       });
     });
   </script>
   <style type="text/css">
-  
-    .flex-container 
+
+    .flex-container
     {
       display: flex;
       flex-direction: row;
@@ -55,9 +57,9 @@
 
 
     /* Responsive layout - makes a one column layout instead of a two-column layout */
-    @media (max-width: 800px) 
+    @media (max-width: 800px)
     {
-      .flex-container 
+      .flex-container
       {
         flex-direction: column;
         justify-content: center;
@@ -65,17 +67,17 @@
         align-items: center;
       }
     }
-  
+
   .brand
   {
-    padding-bottom: 200px;  
+    padding-bottom: 200px;
   }
 
   .btn-primary
   {
     max-width: 100px;
   }
-  
+
   </style>
 </head>
 
@@ -85,14 +87,14 @@
   <div id="myDiv" class="animate-bottom" style="display:none;">
   {% include "hospital/Home/nav_main.html" %}
   <!-- End Navbar -->
-  
+
   <div class="container" style="text-align: center;position: relative;">
     <!-- <div class="page-header-image" style="background-image: url('https://images.unsplash.com/photo-1470219556762-1771e7f9427d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OHx8fGVufDB8fHw%3D&w=1000&q=80');"></div> -->
       <div class="container mx-auto">
         <div class="brand">
           <h1 class="sps"><center>Login / Sign Up</center></h1><br><br><br>
-          
-          
+
+
           <div class="flex-container" style="box-sizing: border-box;">
           <div class="logincards" style="margin-top: 50px;">
           	<img src="{%static 'assets/img/patient.png' %}" style="border-radius: 50%" width="250" height="250">
@@ -106,16 +108,17 @@
           <!-- <div class="col-md-4 col-sm-12"> -->
           <div class="logincards" style="margin-top: 50px;">
           	<img src="{%static 'assets/img/doctor.png' %}" style="border-radius: 50%" width="250" height="250">
-          	<div style="display: block;margin-top: 50px"><a href="{% url 'register_doc.html' %}" class="btn btn-primary btn-round btn-lg">Doctor</a></div>          
+          	<div style="display: block;margin-top: 50px"><a href="{% url 'register_doc.html' %}" class="btn btn-primary btn-round btn-lg">Doctor</a></div>
           </div>
-        </div>         
-        
+        </div>
+
       </div>
-      
+
     </div>
-    
+
   <br><br>
   {% include "hospital/Home/footer.html" %}
+    </div>
 </div>
   <!--   Core JS Files   -->
   <script src="{% static 'assets/js/core/jquery.min.js' %}"></script>
@@ -126,13 +129,13 @@
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!--  Google Maps Plugin    -->
-  
+
  <!-- Chartist JS -->
  <script src="{% static 'assets/js/plugins/chartist.min.js' %}"></script>
  <!--  Notifications Plugin    -->
  <script src="{% static 'assets/js/plugins/bootstrap-notify.js' %}"></script>
  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
- 
+
   <script>
     $(document).ready(function() {
       $().ready(function() {

@@ -23,7 +23,7 @@
     $(document).ready(function(){
       var dragTheme = window.localStorage.getItem('checkbox');
       if(dragTheme==="true"){
-        $("#jhamela").removeClass("darkEdition");
+          $("#jhamela").removeClass("darkEdition").css("background-color", "#FFCDEA");
           window.localStorage.setItem('checkbox', true);
           var dragTheme = window.localStorage.getItem('checkbox');
           console.log(dragTheme);
@@ -31,19 +31,20 @@
       }
       $("#checkbox").click(function(){
         if($('#checkbox').prop("checked")){
-          $("#jhamela").removeClass("darkEdition");
+          $("#jhamela").removeClass("darkEdition").css("background-color", "#FFCDEA");
           window.localStorage.setItem('checkbox', true);
           var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme); 
+          console.log(dragTheme);
         }
         else{
-          $("#jhamela").addClass("darkEdition");
+          $("#jhamela").addClass("darkEdition").css("background-color", "#FFCDEA");
           window.localStorage.setItem('checkbox', false);
           var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme); 
+          console.log(dragTheme);
         }
       });
     });
+
   </script>
 </head>
 <style>
