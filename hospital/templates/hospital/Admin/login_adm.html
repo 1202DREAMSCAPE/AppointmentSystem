@@ -13,143 +13,272 @@
   <!-- Fonts and icons -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600|Poppins:700,900" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="{% static 'assets/css/material-dashboard.css'%}" rel="stylesheet" />
+   <link href="{% static 'assets/css/form.css'%}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      var dragTheme = window.localStorage.getItem('checkbox');
+      if(dragTheme==="true"){
+          $("#jhamela").removeClass("darkEdition").css("background-color", "#FFCDEA");
+          window.localStorage.setItem('checkbox', true);
+          var dragTheme = window.localStorage.getItem('checkbox');
+          console.log(dragTheme);
+          $("#checkbox").click();
+      }
+      $("#checkbox").click(function(){
+        if($('#checkbox').prop("checked")){
+          $("#jhamela").removeClass("darkEdition").css("background-color", "#FFCDEA");
+          window.localStorage.setItem('checkbox', true);
+          var dragTheme = window.localStorage.getItem('checkbox');
+          console.log(dragTheme);
+        }
+        else{
+          $("#jhamela").addClass("darkEdition").css("background-color", "#FFCDEA");
+          window.localStorage.setItem('checkbox', false);
+          var dragTheme = window.localStorage.getItem('checkbox');
+          console.log(dragTheme);
+        }
+      });
+    });
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    body {
-      background-color: #FFDEEA; /* Light pink */
-      font-family: 'Nunito Sans', sans-serif;
-      color: #86469C; /* Dark purple */
-      margin: 0;
-      padding: 0;
-    }
-
-    .navbar {
-      background-color: #BC7FCD; /* Medium purple */
-      color: white;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar a {
-      color: white;
-      font-weight: 600;
-      text-decoration: none;
-      margin-right: 20px;
-      transition: color 0.3s;
-    }
-
-    .navbar a:hover {
-      color: #FFCDEA; /* Light pink */
-    }
-
-    .form-container {
-      background-color: white;
-      border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-      max-width: 500px;
-      margin: 50px auto;
-      padding: 40px 30px;
-      text-align: center;
-    }
-
-    .form-container h1 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 900;
-      font-size: 2rem;
-      color: #86469C;
-      margin-bottom: 20px;
-    }
-
-    .form-container form {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .form-container input[type="text"],
-    .form-container input[type="password"] {
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 10px;
-      border: 1px solid #BC7FCD;
-      font-size: 1rem;
-    }
-
-    .form-container input[type="submit"] {
-      background-color: #FB9AD1; /* Bright pink */
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-top: 20px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .form-container input[type="submit"]:hover {
-      background-color: #BC7FCD; /* Medium purple */
-    }
-
-    .form-container a {
-      color: #BC7FCD;
-      font-size: 0.9rem;
-      text-decoration: none;
-      margin-top: 15px;
-      display: block;
-    }
-
-    .form-container a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      background-color: #86469C; /* Deep purple */
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      font-size: 1rem;
-    }
-  </style>
+  </script>
 </head>
 
-<body>
+<body id="jhamela" class="darkEdition lightEdition">
   <!-- Navbar -->
-  <nav class="bg-white shadow-md">
-    <div class="container mx-auto flex justify-between items-center py-4 px-6">
-      <!-- Logo -->
-      <div class="flex items-center">
-        <img src="{% static 'assets/img/logodigi.png' %}" alt="Logo" class="w-10 h-10 mr-3">
-        <span class="text-xl text-black font-bold" style="font-family: 'Poppins', sans-serif;">DigiCare PH</span>
-      </div>
+  {% include "hospital/Home/preloader.html" %}
+  <div id="myDiv" class="animate-bottom" style="display:none;">
+  {% include "hospital/Home/nav_main.html" %}
+  <!-- End Navbar -->
+  
+  <div style="text-align: center;position: relative">
+  <!-- End Navbar -->
+  <br><br><br>
 
-      <!-- Navigation Links -->
-      <div class="flex space-x-6 items-center">
-        <a href="#" class="text-gray-600 hover:text-blue-500">Home</a>
-        <a href="/login" class="text-gray-600 hover:text-blue-500">Login</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Login Form -->
-  <div class="form-container">
-    <h1>Admin Login</h1>
-    <form method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      <input type="text" name="username" placeholder="Username" required />
-      <input type="password" name="password" placeholder="Password" required />
-      <input type="submit" value="Login" />
-    </form>
-    <a href="{% url 'password_reset' %}">Forgot Password?</a>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2024 DigiCare PH
-  </footer>
+  <center>
+    <div class="container">
+      <div class="screen" style="width: 70%;margin-left: auto;margin-right: auto;margin-bottom: 130px">
+        <div class="screen-header">
+          <div class="screen-header-left">
+            <img src="{% static 'assets/img/btn.png' %}" height="20px">
+          </div>
+        </div>
+        <div class="screen-body">
+          <div class="screen-body-item left">
+            <div class="app-title" style="text-align: left;color: #86469C">
+              <span>LOGIN</span>
+            </div>
+          </div>
+          <div class="screen-body-item sps">
+            <form class="app-form" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{ form.as_p}}
+              <input type="submit" value="Login" class='btn btn-primary btn-lg' style="margin-top: 30px;margin-bottom: 50px">
+            </form>
+
+            <div class="border-top pt-3">
+                  <div class="text-muted">
+                     Need an account? <a class="ml-2" href="{% url 'register_adm.html' %}">Sign Up Now</a>
+                  </div>
+                  <div class="text-muted">
+                      Forgot password? <a class="ml-2" href="{% url 'password_reset' %}">Reset Password</a>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </center>
+
+  {% include "hospital/Home/footer.html" %}
+  </div>
+  <!--   Core JS Files   -->
+  <script src="{% static 'assets/js/core/jquery.min.js' %}"></script>
+  
+  <script src="{% static 'assets/js/core/popper.min.js' %}"></script>
+  <script src="{% static 'assets/js/core/bootstrap-material-design.min.js' %}"></script>
+  <script src="https://unpkg.com/default-passive-events"></script>
+  <script src="{% static 'assets/js/plugins/perfect-scrollbar.jquery.min.js' %}"></script>
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!--  Google Maps Plugin    -->
+  
+ <!-- Chartist JS -->
+ <script src="{% static 'assets/js/plugins/chartist.min.js' %}"></script>
+ <!--  Notifications Plugin    -->
+ <script src="{% static 'assets/js/plugins/bootstrap-notify.js' %}"></script>
+ <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+ <script src="{% static 'assets/js/material-dashboard.js' %}"></script>
+  
+  <script>
+    $(document).ready(function() {
+      $().ready(function() {
+        $sidebar = $('.sidebar');
+
+        $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+
+        window_width = $(window).width();
+
+        $('.fixed-plugin a').click(function(event) {
+          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .active-color span').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-color', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .background-color .badge').click(function() {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('background-color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-background-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .img-holder').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).parent('li').siblings().removeClass('active');
+          $(this).parent('li').addClass('active');
+
+
+          var new_image = $(this).find("img").attr('src');
+
+          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            $sidebar_img_container.fadeOut('fast', function() {
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $sidebar_img_container.fadeIn('fast');
+            });
+          }
+
+          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $full_page_background.fadeOut('fast', function() {
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+              $full_page_background.fadeIn('fast');
+            });
+          }
+
+          if ($('.switch-sidebar-image input:checked').length == 0) {
+            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+          }
+        });
+
+        $('.switch-sidebar-image input').change(function() {
+          $full_page_background = $('.full-page-background');
+
+          $input = $(this);
+
+          if ($input.is(':checked')) {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar_img_container.fadeIn('fast');
+              $sidebar.attr('data-image', '#');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page_background.fadeIn('fast');
+              $full_page.attr('data-image', '#');
+            }
+
+            background_image = true;
+          } else {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar.removeAttr('data-image');
+              $sidebar_img_container.fadeOut('fast');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page.removeAttr('data-image', '#');
+              $full_page_background.fadeOut('fast');
+            }
+
+            background_image = false;
+          }
+        });
+
+        $('.switch-sidebar-mini input').change(function() {
+          $body = $('body');
+
+          $input = $(this);
+
+          if (md.misc.sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            md.misc.sidebar_mini_active = false;
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+          } else {
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+            setTimeout(function() {
+              $('body').addClass('sidebar-mini');
+
+              md.misc.sidebar_mini_active = true;
+            }, 300);
+          }
+
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function() {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>

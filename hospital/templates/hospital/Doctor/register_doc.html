@@ -13,79 +13,39 @@
     <!-- Fonts and Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600|Poppins:700,900" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- CSS Files -->
 
-    <style>
-        body {
-            background-color: #FFDEEA;
-            font-family: 'Nunito Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .form-container {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .form-container h1 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 900;
-            font-size: 2.5rem;
-            color: #86469C;
-            margin-bottom: 20px;
-        }
-
-        .form-container input, .form-container select {
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 10px;
-            border: 1px solid #BC7FCD;
-            font-size: 1rem;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .form-container input[type="submit"] {
-            background-color: #FB9AD1;
-            color: white;
-            border: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .form-container input[type="submit"]:hover {
-            background-color: #BC7FCD;
-        }
-
-        .form-container a {
-            color: #BC7FCD;
-            text-decoration: none;
-            margin-top: 15px;
-            display: block;
-        }
-
-        .form-container a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            background-color: #86469C;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 40px;
-            font-size: 1rem;
-        }
-    </style>
+    <link href="{% static 'assets/css/material-dashboard.css'%}" rel="stylesheet" />
+    <link href="{% static 'assets/css/form.css'%}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var dragTheme = window.localStorage.getItem('checkbox');
+            if (dragTheme === "true") {
+                $("#jhamela").removeClass("darkEdition").css("background-color", "#FFCDEA");
+                window.localStorage.setItem('checkbox', true);
+                var dragTheme = window.localStorage.getItem('checkbox');
+                console.log(dragTheme);
+                $("#checkbox").click();
+            }
+            $("#checkbox").click(function() {
+                if ($('#checkbox').prop("checked")) {
+                    $("#jhamela").removeClass("darkEdition").css("background-color", "#FFCDEA");
+                    window.localStorage.setItem('checkbox', true);
+                    var dragTheme = window.localStorage.getItem('checkbox');
+                    console.log(dragTheme);
+                } else {
+                    $("#jhamela").addClass("darkEdition").css("background-color", "#FFCDEA");
+                    window.localStorage.setItem('checkbox', false);
+                    var dragTheme = window.localStorage.getItem('checkbox');
+                    console.log(dragTheme);
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -102,68 +62,42 @@
                 <a href="/" class="text-gray-600 hover:text-blue-500">Home</a>
             </div>
         </div>
-    </nav>
+        {% endfor %} {% endif %}
 
-    <!-- Signup Form -->
-    <div class="form-container">
-        <h1>Doctor Signup</h1>
-        <a href="{% url 'login_doc.html' %}">Already have an account? Sign In</a>
+        <center>
+            <div class="container">
 
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <!-- Username, Email -->
-            <input type="text" name="username" placeholder="Username" required />
-            <input type="email" name="email" placeholder="Email Address" required />
 
-            <!-- First and Last Name -->
-            <input type="text" name="firstname" placeholder="First Name" required />
-            <input type="text" name="lastname" placeholder="Last Name" required />
 
-            <!-- Date of Birth -->
-            <label for="dob" class="text-gray-600 text-left block mt-3">Date of Birth</label>
-            <div class="flex space-x-2 mb-4">
-                <select name="birth_month" required>
-                    <option value="" disabled selected>Month</option>
-                    <option>January</option><option>February</option><option>March</option>
-                    <option>April</option><option>May</option><option>June</option>
-                    <option>July</option><option>August</option><option>September</option>
-                    <option>October</option><option>November</option><option>December</option>
-                </select>
-                    <select name="birth_day" required>
-                        <option value="" disabled selected>Day</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
-                        <option>11</option>
-                        <option>12</option>
-                        <option>13</option>
-                        <option>14</option>
-                        <option>15</option>
-                        <option>16</option>
-                        <option>17</option>
-                        <option>18</option>
-                        <option>19</option>
-                        <option>20</option>
-                        <option>21</option>
-                        <option>22</option>
-                        <option>23</option>
-                        <option>24</option>
-                        <option>25</option>
-                        <option>26</option>
-                        <option>27</option>
-                        <option>28</option>
-                        <option>29</option>
-                        <option>30</option>
-                        <option>31</option>
-                    </select>
-                <input type="number" name="birth_year" placeholder="Year" min="1900" max="2024" required />
+                <div class="screen" style="width: 70%;margin-left: auto;margin-right: auto;margin-bottom: 100px">
+                    <div class="screen-header">
+                        <div class="screen-header-left">
+                            <img src="{% static 'assets/img/btn.png' %}" height="20px">
+                        </div>
+                    </div>
+                    <div class="screen-body">
+                        <div class="screen-body-item left">
+                            <div class="app-title" style="text-align: left;color: #86469C">
+                                <span>REGISTER</span>
+                            </div>
+                        </div>
+                        <div class="screen-body-item sps">
+                            <form class="app-form" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %} {{ form }}
+                                <input type="submit" value="Register" class='btn btn-primary btn-lg' style="margin-top: 30px;margin-bottom: 50px">
+                            </form>
+
+                            <div class="border-top pt-3">
+                                <div class="text-muted">
+
+                                    Already have an account? <a class="ml-2" href="{% url 'login_doc.html' %}">Sign In</a>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Address -->

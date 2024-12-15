@@ -9,83 +9,42 @@
       Patient Login
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-
-  <!-- Fonts and Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600|Poppins:700,900" />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,500,700|Nunito+Sans:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    body {
-      background-color: #FFDEEA;
-      font-family: 'Nunito Sans', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .form-container {
-      background-color: white;
-      border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-      max-width: 500px;
-      margin: 50px auto;
-      padding: 40px;
-      text-align: center;
-    }
-
-    .form-container h1 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 900;
-      font-size: 2.5rem;
-      color: #86469C;
-      margin-bottom: 20px;
-    }
-
-    .form-container input {
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 10px;
-      border: 1px solid #BC7FCD;
-      font-size: 1rem;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .form-container input[type="submit"] {
-      background-color: #FB9AD1;
-      color: white;
-      border: none;
-      font-size: 1.2rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .form-container input[type="submit"]:hover {
-      background-color: #BC7FCD;
-    }
-
-    .form-container a {
-      color: #BC7FCD;
-      text-decoration: none;
-      margin-top: 15px;
-      display: block;
-    }
-
-    .form-container a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      background-color: #86469C;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-      font-size: 1rem;
-    }
-  </style>
+  <!-- CSS Files -->
+  <link href="{% static 'assets/css/material-dashboard.css'%}" rel="stylesheet" />
+   <link href="{% static 'assets/css/form.css'%}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,500,700|Nunito+Sans:400,700|Material+Icons" />
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      var dragTheme = window.localStorage.getItem('checkbox');
+      if(dragTheme==="true"){
+        $("#jhamela").removeClass("darkEdition").css("background-color", "#FFCDEA");
+          window.localStorage.setItem('checkbox', true);
+          var dragTheme = window.localStorage.getItem('checkbox');
+          console.log(dragTheme);
+          $("#checkbox").click();
+      }
+      $("#checkbox").click(function(){
+        if($('#checkbox').prop("checked")){
+          $("#jhamela").removeClass("darkEdition").css("background-color", "#FFCDEA");
+          window.localStorage.setItem('checkbox', true);
+          var dragTheme = window.localStorage.getItem('checkbox');
+          console.log(dragTheme); 
+        }
+        else{
+          $("#jhamela").addClass("darkEdition").css("background-color", "#FFCDEA");
+          window.localStorage.setItem('checkbox', false);
+          var dragTheme = window.localStorage.getItem('checkbox');
+          console.log(dragTheme); 
+        }
+      });
+    });
+  </script>
 </head>
 
 <body>
@@ -100,10 +59,46 @@
         <span class="text-xl font-bold text-black" style="font-family: 'Poppins', sans-serif;">DigiCare PH</span>
       </div>
 
-      <!-- Navigation -->
-      <div class="space-x-6">
-        <a href="/" class="text-gray-600 hover:text-blue-500">Home</a>
-        <a href="/login" class="text-gray-600 hover:text-blue-500">Login</a>
+  {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}}">
+            {{ message }}
+        </div>
+    {% endfor %}
+  {% endif %}
+
+
+  <center>
+    <div class="container">
+      <div class="screen" style="width: 70%;margin-left: auto;margin-right: auto;margin-bottom: 130px">
+        <div class="screen-header">
+          <div class="screen-header-left">
+            <img src="{% static 'assets/img/btn.png' %}" height="20px">
+          </div>
+        </div>
+        <div class="screen-body">
+          <div class="screen-body-item left">
+            <div class="app-title" style="text-align: left;color: #86469C">
+              <span>LOGIN</span>
+            </div>
+          </div>
+          <div class="screen-body-item sps">
+            <form class="app-form" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{ form.as_p}}
+              <input type="submit" value="Login" class='btn btn-primary btn-lg' style="margin-top: 30px;margin-bottom: 50px">
+            </form>
+
+            <div class="border-top pt-3">
+                  <div class="text-muted">
+                     Need an account? <a class="ml-2" href="{% url 'register_pat.html' %}">Sign Up Now</a>
+                  </div>
+                  <div class="text-muted">
+                      Forgot password? <a class="ml-2" href="{% url 'password_reset' %}">Reset Password</a>
+                  </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
