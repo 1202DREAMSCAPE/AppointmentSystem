@@ -13,80 +13,40 @@
   <!-- Fonts and Icons -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600|Poppins:700,900" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="{% static 'assets/css/material-dashboard.css'%}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link href="{% static 'assets/css/custom-styles.css'%}" rel="stylesheet" />
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    body {
-      background-color: #FFDEEA;
-      font-family: 'Nunito Sans', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .form-container {
-      background-color: white;
-      border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-      max-width: 500px;
-      margin: 50px auto;
-      padding: 40px;
-      text-align: center;
-    }
-
-    .form-container h1 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 900;
-      font-size: 2.5rem;
-      color: #86469C;
-      margin-bottom: 20px;
-    }
-
-    .form-container input {
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 10px;
-      border: 1px solid #BC7FCD;
-      font-size: 1rem;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .form-container input[type="submit"] {
-      background-color: #FB9AD1;
-      color: white;
-      border: none;
-      font-size: 1.2rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .form-container input[type="submit"]:hover {
-      background-color: #BC7FCD;
-    }
-
-    .form-container a {
-      color: #BC7FCD;
-      text-decoration: none;
-      margin-top: 15px;
-      display: block;
-    }
-
-    .form-container a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      background-color: #86469C;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-      font-size: 1rem;
-    }
-  </style>
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      var dragTheme = window.localStorage.getItem('checkbox');
+      if(dragTheme==="true"){
+        $("#jhamela").removeClass("darkEdition");
+          window.localStorage.setItem('checkbox', true);
+          var dragTheme = window.localStorage.getItem('checkbox');
+          console.log(dragTheme);
+          $("#checkbox").click();
+      }
+      $("#checkbox").click(function(){
+        if($('#checkbox').prop("checked")){
+          $("#jhamela").removeClass("darkEdition");
+          window.localStorage.setItem('checkbox', true);
+          var dragTheme = window.localStorage.getItem('checkbox');
+          console.log(dragTheme); 
+        }
+        else{
+          $("#jhamela").addClass("darkEdition");
+          window.localStorage.setItem('checkbox', false);
+          var dragTheme = window.localStorage.getItem('checkbox');
+          console.log(dragTheme); 
+        }
+      });
+    });
+  </script>
 </head>
 
 <body>

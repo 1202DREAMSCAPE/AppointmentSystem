@@ -14,9 +14,7 @@
       font-family: 'Nunito Sans', sans-serif;
     }
 
-    h1,
-    h2,
-    h3 {
+    h1, h2, h3 {
       font-family: 'Poppins', sans-serif;
     }
 
@@ -61,32 +59,42 @@
 </head>
 
 <body class="bg-gray-100">
+
   <!-- Navbar -->
-  {% include "hospital/Home/nav_main.html" %}
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="{% static 'assets/img/logodigi.png' %}" alt="Logo" class="w-10 h-10 mr-3">
+        <span class="text-xl font-bold" style="font-family: 'Poppins', sans-serif;">DigiCare PH</span>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="flex space-x-6 items-center">
+        <a href="#" class="text-gray-600 hover:text-blue-500" style="font-family: 'Nunito Sans', sans-serif;">Services Offered</a>
+        <a href="{% url 'login.html' %}" class="text-gray-600 hover:text-blue-500" style="font-family: 'Nunito Sans', sans-serif;">Login</a>
+      </div>
+    </div>
+  </nav>
 
   <!-- Hero Section -->
-<section
-  class="relative text-white px-6 lg:px-16 rounded-b-[6rem] shadow-xl"
-  style="background: linear-gradient(to right, rgba(128, 90, 213, 0.5), rgba(102, 51, 153, 0.8)), url('{% static "assets/img/bgdoc.jpg" %}') no-repeat center center/cover;">
-  <div class="container mx-auto flex flex-col items-center py-28 text-center">
-    <!-- Text Content -->
-    <h1 class="text-5xl lg:text-7xl font-bold leading-tight">
-      DigiCare PH
-    </h1>
-    <p class="mt-4 text-lg lg:text-xl">
-      Healthcare, Redefined.
-    </p>
-    <p class="mt-4 text-sm lg:text-base leading-relaxed max-w-2xl">
-      Say goodbye to long queues and hello to instant care. DigiCare PH is your digital partner in health and wellness.
-    </p>
-    <button
-      class="mt-6 bg-pink text-white py-3 px-8 rounded-full hover:bg-pink-500 shadow-lg transition-transform transform hover:scale-105 duration-250">
-      Book an Appointment Now!
-    </button>
-  </div>
-</section>
-
-
+  <section
+    class="relative text-white px-6 lg:px-16 rounded-b-[6rem] shadow-xl"
+    style="background: linear-gradient(to right, rgba(128, 90, 213, 0.5), rgba(102, 51, 153, 0.8)), url('{% static "assets/img/bgdoc.jpg" %}') no-repeat center center/cover;">
+    <div class="container mx-auto flex flex-col items-center py-28 text-center">
+      <h1 class="text-5xl lg:text-7xl font-bold leading-tight">
+        DigiCare PH
+      </h1>
+      <p class="mt-4 text-lg lg:text-xl">Healthcare, Redefined.</p>
+      <p class="mt-4 text-sm lg:text-base leading-relaxed max-w-2xl">
+        Say goodbye to long queues and hello to instant care. DigiCare PH is your digital partner in health and wellness.
+      </p>
+      <button
+        class="mt-6 bg-pink text-white py-3 px-8 rounded-full hover:bg-pink-500 shadow-lg transition-transform transform hover:scale-105 duration-250">
+        Book an Appointment Now!
+      </button>
+    </div>
+  </section>
 
   <!-- Features Section -->
   <section class="py-16">
@@ -114,29 +122,74 @@
     </div>
   </section>
 
-  <!-- About Us Section -->
 <!-- About Us Section -->
-<section class="py-13">
-	<div 
-	  class="container mx-auto flex flex-col lg:flex-row items-center text-center lg:text-left rounded-3xl bg-pink-light shadow-lg p-8 transition-transform transform hover:scale-105 hover:shadow-2xl"
-	  style="position: relative; overflow: hidden;"
-	>
-	  <!-- Gradient Overlay -->
-	  <div 
-		class="absolute inset-0 bg-gradient-to-r from-purple-dark via-pink-light to-purple-dark opacity-10 pointer-events-none transition-opacity duration-300"></div>
+<section class="py-16 bg-gradient-to-r from-pink-300 via-purple-200 to-pink-300">
+	<div class="container mx-auto px-6 lg:px-16">
+	  <!-- About Section -->
+	  <div class="flex flex-col items-center text-center">
+		<!-- Text Content -->
+		<div class="lg:w-3/4 px-6">
+		  <h2 class="text-5xl font-bold text-center text-purple-dark mb-8">About DigiCare PH</h2>
+		  <p class="mt-6 text-2xl text-gray-800 leading-relaxed">
+			At DigiCare PH, we are committed to revolutionizing healthcare services by integrating technology and personalized care.
+		  </p>
+		  <p class="mt-6 text-2xl text-gray-800 leading-relaxed">
+			From video consultations to doorstep medicine deliveries, DigiCare PH ensures accessibility, convenience, and excellence in healthcare.
+		  </p>
+		</div>
+	  </div>
+	</div>
+  </section>
   
-	  <!-- Text Content -->
-	  <div class="lg:w-3/4">
-		<h2 class="text-3xl font-bold text-center text-purple-dark">About DigiCare PH</h2>
-		<p class="mt-4 text-lg text-black leading-relaxed">
-		  At DigiCare PH, we are committed to revolutionizing healthcare services by integrating technology and personalized care. Our mission is to provide seamless and efficient medical solutions that cater to your health and wellness needs.
-		</p>
-		<p class="mt-4 text-lg text-black leading-relaxed">
-		  From video consultations to doorstep medicine deliveries, DigiCare PH ensures accessibility, convenience, and excellence in healthcare. We aim to create a system where your health is our priority.
+  <!-- Testimonials Section -->
+<section class="py-20 text-white">
+	<div class="container mx-auto px-6 lg:px-16">
+	  <div class="text-center mb-12">
+		<h2 class="text-4xl font-bold text-purple-dark">What Our Clients Say</h2>
+		<p class="mt-4 text-xl text-purple-dark">
+		  Hear from our satisfied clients about their experiences with DigiCare PH.
 		</p>
 	  </div>
-  	  <div class="lg:w-1/4 flex justify-center lg:justify-center mt-6 lg:mt-0">
-		<img src="{% static 'assets/img/logodigi.png' %}" alt="DigiCare PH Logo" class="w-32 h-32 lg:w-40 lg:h-40">
+	  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+		<!-- Testimonial 1 -->
+		<div class="p-6 bg-white rounded-lg shadow-md text-gray-700">
+		  <p class="text-lg leading-relaxed italic">
+			"DigiCare PH has been a game-changer for my family. The video consultations are so convenient, and the doctors are very professional."
+		  </p>
+		  <div class="mt-4 flex items-center">
+			<img src="{% static 'assets/img/testimonial1.jpg' %}" alt="Client 1" class="w-12 h-12 rounded-full mr-4">
+			<div>
+			  <h4 class="font-semibold">Maria Santos</h4>
+			  <span class="text-sm text-gray-500">Quezon City, Philippines</span>
+			</div>
+		  </div>
+		</div>
+		<!-- Testimonial 2 -->
+		<div class="p-6 bg-white rounded-lg shadow-md text-gray-700">
+		  <p class="text-lg leading-relaxed italic">
+			"I was amazed by how fast I received my medications through DigiCare PH. Highly recommended for busy individuals like me!"
+		  </p>
+		  <div class="mt-4 flex items-center">
+			<img src="{% static 'assets/img/testimonial2.jpg' %}" alt="Client 2" class="w-12 h-12 rounded-full mr-4">
+			<div>
+			  <h4 class="font-semibold">John Dela Cruz</h4>
+			  <span class="text-sm text-gray-500">Makati City, Philippines</span>
+			</div>
+		  </div>
+		</div>
+		<!-- Testimonial 3 -->
+		<div class="p-6 bg-white rounded-lg shadow-md text-gray-700">
+		  <p class="text-lg leading-relaxed italic">
+			"As a senior citizen, I appreciate the personalized care DigiCare PH offers. Their services are truly life-changing."
+		  </p>
+		  <div class="mt-4 flex items-center">
+			<img src="{% static 'assets/img/testimonial3.jpg' %}" alt="Client 3" class="w-12 h-12 rounded-full mr-4">
+			<div>
+			  <h4 class="font-semibold">Amelia Reyes</h4>
+			  <span class="text-sm text-gray-500">Cebu City, Philippines</span>
+			</div>
+		  </div>
+		</div>
 	  </div>
 	</div>
   </section>
@@ -148,15 +201,10 @@
   <!-- Footer -->
   <footer class="bg-purple-dark text-white py-8">
     <div class="container mx-auto text-center">
-      <p>&copy; 2024 DigiCare PH. All rights reserved.</p>
+      <p>&copy; 2024 DigiCare PH.</p>
     </div>
   </footer>
 
-  <!-- Core JS Files -->
-  <script src="{% static 'assets/js/core/jquery.min.js' %}"></script>
-  <script src="{% static 'assets/js/core/popper.min.js' %}"></script>
-  <script src="{% static 'assets/js/core/bootstrap-material-design.min.js' %}"></script>
-  <script src="https://unpkg.com/default-passive-events"></script>
 </body>
 
 </html>
