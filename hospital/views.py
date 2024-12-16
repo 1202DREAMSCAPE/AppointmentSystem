@@ -19,12 +19,6 @@ from xhtml2pdf import pisa
 
 from django.shortcuts import render
 
-def register_doc_view(request):
-    return render(request, 'hospital/Doctor/register_doc.html', {
-        'days': range(1, 32)
-    })
-
-
 #Admin Related Views
 @login_required(login_url='login_adm.html')     #if user is not logged in, redirect to login page
 def opcost_adm_view(request):
