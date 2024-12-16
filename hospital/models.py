@@ -10,15 +10,6 @@ departments=[('Cardiologist','Cardiologist'),
 ('Colon and Rectal Surgeon','Colon and Rectal Surgeon')
 ]   #possible departments for doctor
 
-service_catalog = [
-    ('Hair Cut', 'Hair Cut'),
-    ('Hair Color', 'Hair Color'),
-    ('Color Refreshment', 'Color Refreshment'),
-    ('Heat Perm', 'Heat Perm'),
-    ('Rebond', 'Rebond'),
-    ('Keratin Treatment', 'Keratin Treatment'),
-]
-
 def defaultuser():  #for deleted users(Patient, Doctor, Admin)
     us = User(username="deleteduser",email="deleteduser@deleted.com")
     return us.id        
@@ -74,7 +65,6 @@ class Patient(models.Model):    #patient details
 class Appointment(models.Model):    #patient appointment details
     patient=models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="PatientApp") #patient foreign key
     doctor=models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name="DoctorApp")    #doctor foreign key
-    # service_catalog= models.CharField(max_length=50,choices=service_catalog,default='Hair Cut')
     description=models.TextField(max_length=500)    #description (symptoms/how to take medicines/causes/precautions)
     link=models.TextField(null=True, blank=True)    #video call room link
     calldate=models.DateField(null=True, blank=True)    #call date
@@ -133,7 +123,7 @@ class DoctorProfessional(models.Model): #professional details of a doctor
     admfees=models.FloatField() #admit fees for doctor
     totalpat = models.IntegerField(default=0)   #total patients treated by doctor
     def __str__(self):
-        return f'{self.doctor.firstname} Professional Info'
+        return f'Dr. {self.doctor.lastname} Professional Info'
 
 
 class OperationCosts(models.Model):     #for easier and smoother day-to-day hospital works, admin can change costs

@@ -18,9 +18,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" type="image/png" href="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png">
+  <link rel="icon" type="image/png" href="{% static 'assets/img/logodigi.png'%}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>Hospital Management System</title>
+  <title>Hospital Appointment System</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -70,7 +70,7 @@
  .box {
    background-color: azure;
   border-radius: 25px;
-  border: 5px solid #28acea;
+  border: 5px solid #bc7fcd;
   padding: 10px;  
   margin-left: 10%;
   margin-right: 20%;
@@ -86,16 +86,16 @@
   {% include "hospital/Home/preloader.html" %}
 
   <div id="myDiv" class="animate-bottom wrapper" style="display:none;text-align: center;position: relative;">
-    <div class="sidebar" data-color="azure" data-background-color="black" data-image="{% static 'assets/img/sidebar-2.jpg'%}">
+    <div class="sidebar" data-color="azure" data-background-color="black" data-image="{% static 'assets/img/logodigi.png'%}">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
         Tip 2: you can also add an image using data-image tag
     -->
     <div class="logo"><a href="#" class="simple-text logo-normal">
-      <img src="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png">
+      <img src="{% static 'assets/img/logodigi.png'%}" style="max-width: 60%; height: auto;">
       <br> 
-      GROUP 20
+      DigiCare PH
       </a></div>
     <div class="sidebar-wrapper">
       <ul class="nav">
@@ -112,24 +112,24 @@
             <p>Book Appointment</p>
           </a>
         </li>
-        <li class="nav-item ">
+        <!-- <li class="nav-item ">
           <a class="nav-link" href="{% url 'admit_details.html' %}">
             <i class="material-icons">content_paste</i>
             <p>Admit Details</p>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item active  ">
           <a class="nav-link" href="{% url 'yourhealth.html' %}">
             <i class="material-icons">favorite</i>
             <p>Your Health</p>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="{% url 'calladoc.html' %}">
             <i class="material-icons">library_books</i>
             <p>Call A Doc</p>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item ">
           <a class="nav-link" href="{% url 'medicalreport.html' %}">
             <i class="material-icons">favorite</i>
@@ -151,32 +151,31 @@
       </ul>
     </div>
   </div>
-    <div class="main-panel">
+    <div class="main-panel" style="text-align: center;">
       <br><br>
-      <h1 style="color: #28acea">Your Health</h1>
-      <br><br>
+      <h1 style="color: #bc7fcd">Your Health</h1>
       <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-      <div class="container">
+      <div class="container" style="padding-left: 110px;">
         <div class="box">
-          <h1 style="font-size: 30px; color: #28acea">Basic Information</h1><hr><br>
+          <h1 style="font-size: 30px; color: #bc7fcd">Basic Information</h1><hr><br>
           <p class="list"><img src="https://img.icons8.com/color/26/000000/christmas-star.png" class="mr-1 " width="19" height="19" id="star" style="align-self: left;"> <b>Height:</b> {{ p_form.height|add_class:"form-control form-control-alternative" }} cm</p>{{ p_form.height.errors }}
           <p class="list"><img src="https://img.icons8.com/color/26/000000/christmas-star.png" class="mr-1 " width="19" height="19" id="star" style="align-self: left;"> <b>Weight:</b> {{ p_form.weight|add_class:"form-control form-control-alternative" }} kg</p>{{ p_form.weight.errors }}
         </div>
         <br><br>
         <div class="box">
-          <h1 style="font-size: 30px; color: #28acea">Diseases</h1><hr><br>
+          <h1 style="font-size: 30px; color: #bc7fcd">Diseases</h1><hr><br>
           {{ p_form.diseases|add_class:"form-control form-control-alternative" }}
           {{ p_form.diseases.errors }}
         </div>
         <br><br>
         <div class="box">
-          <h1 style="font-size: 30px; color: #28acea">Medicines</h1><hr><br>
+          <h1 style="font-size: 30px; color: #bc7fcd">Medicines</h1><hr><br>
           {{ p_form.medicines|add_class:"form-control form-control-alternative" }}
         </div>
         <br><br>
         <div class="box">
-          <h1 style="font-size: 30px; color: #28acea">Treatments/Surgery</h1><hr><br>
+          <h1 style="font-size: 30px; color: #bc7fcd">Treatments/Surgery</h1><hr><br>
           {{ p_form.ts|add_class:"form-control form-control-alternative" }}
         </div>
       </div>
