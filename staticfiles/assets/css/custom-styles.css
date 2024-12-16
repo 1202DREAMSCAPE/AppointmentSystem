@@ -1,0 +1,67 @@
+/* General styles for body */
+body {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+/* Styles for headers */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Emphasis styles */
+.emphasize {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; /* Updated to the maximum boldness */
+}
+
+/* Use Poppins for navbar */
+.navbar {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Use Nunito Sans for main content */
+.main-content {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+/* Custom Color Palette */
+.bg-purple-dark {
+    background-color: #86469C; /* Dark Purple */
+  }
+  
+  .bg-purple-light {
+    background-color: #BC7FCD; /* Light Purple */
+  }
+  
+  .bg-pink {
+    background-color: #FB9AD1; /* Pink */
+  }
+  
+  .bg-pink-light {
+    background-color: #FFCDEA; /* Very Light Pink */
+  }
+  
+  .text-purple-dark {
+    color: #86469C; /* Dark Purple */
+  }
+  
+  .text-purple-light {
+    color: #BC7FCD; /* Light Purple */
+  }
+  
+  .text-pink {
+    color: #FB9AD1; /* Pink */
+  }
+  
+  .text-pink-light {
+    color: #FFCDEA; /* Very Light Pink */
+  }
+  
+  .hover-bg-purple-light:hover {
+    background-color: #BC7FCD;
+  }
+  
+  .hover-bg-pink:hover {
+    background-color: #FB9AD1;
+  }
+  
