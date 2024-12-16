@@ -71,6 +71,7 @@
  }
  .box {
    background-color: rgba(255,205,234,0.3);
+   background-color: rgba(255,205,234,0.3);
   border-radius: 25px;
   border: 5px solid #bc7fcd;
   border: 5px solid #bc7fcd;
@@ -158,11 +159,6 @@
 =======
         </li>
         <li class="nav-item " style="margin-top: 120px;">
->>>>>>> 2a15965 (patient)
-=======
-        </li> -->
-        <li class="nav-item " style="margin-top: 180px;">
->>>>>>> 1878b60 (remove feedback)
           <a class="nav-link" href="{% url 'logout' %}">
             <i class="material-icons">logout</i>
             <p>Logout</p>
@@ -174,33 +170,34 @@
     <div class="main-panel" style="text-align: center;">
     <div class="main-panel" style="text-align: center;">
       <br><br>
-      <h1 style="color: #bc7fcd">Your Health</h1>
+      <h1 style="color: #bc7fcd"><b>Your Health</b></h1>
       <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
       <div class="container" style="padding-left: 110px;">
       <div class="container" style="padding-left: 110px;">
         <div class="box">
-          <h1 style="font-size: 30px; color: #bc7fcd">Basic Information</h1><hr><br>
+          <h1 style="font-size: 30px; color: #bc7fcd"><b>Basic Information</b></h1><hr><br>
           <p class="list"><img src="https://img.icons8.com/color/26/000000/christmas-star.png" class="mr-1 " width="19" height="19" id="star" style="align-self: left;"> <b>Height:</b> {{ p_form.height|add_class:"form-control form-control-alternative" }} cm</p>{{ p_form.height.errors }}
           <p class="list"><img src="https://img.icons8.com/color/26/000000/christmas-star.png" class="mr-1 " width="19" height="19" id="star" style="align-self: left;"> <b>Weight:</b> {{ p_form.weight|add_class:"form-control form-control-alternative" }} kg</p>{{ p_form.weight.errors }}
         </div>
         <br><br>
         <div class="box">
-          <h1 style="font-size: 30px; color: #bc7fcd">Diseases</h1><hr><br>
+          <h1 style="font-size: 30px; color: #bc7fcd"><b>Diseases</b></h1><hr><br>
           {{ p_form.diseases|add_class:"form-control form-control-alternative" }}
           {{ p_form.diseases.errors }}
         </div>
         <br><br>
         <div class="box">
-          <h1 style="font-size: 30px; color: #bc7fcd">Medicines</h1><hr><br>
+          <h1 style="font-size: 30px; color: #bc7fcd"><b>Medicines</b></h1><hr><br>
           {{ p_form.medicines|add_class:"form-control form-control-alternative" }}
         </div>
         <br><br>
         <div class="box">
-          <h1 style="font-size: 30px; color: #bc7fcd">Treatments/Surgery</h1><hr><br>
+          <h1 style="font-size: 30px; color: #bc7fcd"><b>Treatments/Surgery</b></h1><hr><br>
           {{ p_form.ts|add_class:"form-control form-control-alternative" }}
         </div>
       </div>
+      <br><br><br>
       <br><br><br>
       <button class="btn btn-sm btn-primary" type="submit">Update</button>
       </form>
