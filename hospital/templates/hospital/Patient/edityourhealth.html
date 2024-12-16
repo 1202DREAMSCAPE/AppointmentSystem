@@ -19,9 +19,7 @@
 <head>
   <meta charset="utf-8" />
   <link rel="icon" type="image/png" href="{% static 'assets/img/logodigi.png'%}">
-  <link rel="icon" type="image/png" href="{% static 'assets/img/logodigi.png'%}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>Hospital Appointment System</title>
   <title>Hospital Appointment System</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -71,9 +69,7 @@
  }
  .box {
    background-color: rgba(255,205,234,0.3);
-   background-color: rgba(255,205,234,0.3);
   border-radius: 25px;
-  border: 5px solid #bc7fcd;
   border: 5px solid #bc7fcd;
   padding: 10px;  
   margin-left: 10%;
@@ -91,7 +87,6 @@
 
   <div id="myDiv" class="animate-bottom wrapper" style="display:none;text-align: center;position: relative;">
     <div class="sidebar" data-color="azure" data-background-color="black" data-image="{% static 'assets/img/logodigi.png'%}">
-    <div class="sidebar" data-color="azure" data-background-color="black" data-image="{% static 'assets/img/logodigi.png'%}">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -99,9 +94,7 @@
     -->
     <div class="logo"><a href="#" class="simple-text logo-normal">
       <img src="{% static 'assets/img/logodigi.png'%}" style="max-width: 60%; height: auto;">
-      <img src="{% static 'assets/img/logodigi.png'%}" style="max-width: 60%; height: auto;">
       <br> 
-      DigiCare PH
       DigiCare PH
       </a></div>
     <div class="sidebar-wrapper">
@@ -120,12 +113,10 @@
           </a>
         </li>
         <!-- <li class="nav-item ">
-        <!-- <li class="nav-item ">
           <a class="nav-link" href="{% url 'admit_details.html' %}">
             <i class="material-icons">content_paste</i>
             <p>Admit Details</p>
           </a>
-        </li> -->
         </li> -->
         <li class="nav-item active  ">
           <a class="nav-link" href="{% url 'yourhealth.html' %}">
@@ -134,12 +125,10 @@
           </a>
         </li>
         <!-- <li class="nav-item">
-        <!-- <li class="nav-item">
           <a class="nav-link" href="{% url 'calladoc.html' %}">
             <i class="material-icons">library_books</i>
             <p>Call A Doc</p>
           </a>
-        </li> -->
         </li> -->
         <li class="nav-item ">
           <a class="nav-link" href="{% url 'medicalreport.html' %}">
@@ -152,13 +141,8 @@
             <i class="material-icons">bubble_chart</i>
             <p>Feedback</p>
           </a>
-<<<<<<< HEAD
-<<<<<<< HEAD
         </li> -->
         <li class="nav-item " style="margin-top: 180px;">
-=======
-        </li>
-        <li class="nav-item " style="margin-top: 120px;">
           <a class="nav-link" href="{% url 'logout' %}">
             <i class="material-icons">logout</i>
             <p>Logout</p>
@@ -168,12 +152,10 @@
     </div>
   </div>
     <div class="main-panel" style="text-align: center;">
-    <div class="main-panel" style="text-align: center;">
       <br><br>
       <h1 style="color: #bc7fcd"><b>Your Health</b></h1>
       <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-      <div class="container" style="padding-left: 110px;">
       <div class="container" style="padding-left: 110px;">
         <div class="box">
           <h1 style="font-size: 30px; color: #bc7fcd"><b>Basic Information</b></h1><hr><br>
@@ -197,7 +179,6 @@
           {{ p_form.ts|add_class:"form-control form-control-alternative" }}
         </div>
       </div>
-      <br><br><br>
       <br><br><br>
       <button class="btn btn-sm btn-primary" type="submit">Update</button>
       </form>
