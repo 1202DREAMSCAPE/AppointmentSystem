@@ -5,4 +5,4 @@ __pycache__/
 staticfiles/
 media/
 *.md
-Screenshot/
+*.Screenshot/
