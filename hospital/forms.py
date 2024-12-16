@@ -62,7 +62,7 @@ class DoctorRegisterForm(UserCreationForm): #used to register a doctor
     
     password2 = forms.CharField(label='',widget=forms.PasswordInput(attrs={'placeholder': 'RE-CONFIRM'}))
     password2.widget.attrs.update({'class' : 'app-form-control'})
-
+ 
     class Meta:
         model = User
         fields = ['username', 'email', 'firstname', 'lastname','department', 'dob', 'address', 'city', 'country', 'postalcode', 'password1', 'password2','image']
