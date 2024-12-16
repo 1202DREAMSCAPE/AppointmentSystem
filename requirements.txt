@@ -78,11 +78,19 @@ namex==0.0.8
 nest-asyncio==1.6.0
 networkx==3.3
 nh3==0.2.18
+<<<<<<< HEAD
+=======
+numpy==1.26.4
+>>>>>>> 58e5503 (fixed days)
 openpyxl==3.1.5
 opt_einsum==3.4.0
 optree==0.12.1
 oscrypto==1.3.0
 packaging==24.0
+<<<<<<< HEAD
+=======
+pandas==2.2.2
+>>>>>>> 58e5503 (fixed days)
 parso==0.8.4
 pexpect==4.9.0
 pillow==10.4.0
@@ -128,6 +136,15 @@ stack-data==0.6.3
 svglib==1.5.1
 sympy==1.13.2
 tenacity==9.0.0
+<<<<<<< HEAD
+=======
+tensorboard==2.16.2
+tensorboard-data-server==0.7.2
+tensorflow==2.16.2
+tensorflow-io-gcs-filesystem==0.37.1
+tensorflow-macos==2.16.2
+tensorflow-metal==1.1.0
+>>>>>>> 58e5503 (fixed days)
 termcolor==2.4.0
 threadpoolctl==3.5.0
 tinycss2==1.4.0
@@ -147,7 +164,10 @@ wcwidth==0.2.13
 webencodings==0.5.1
 websocket-client==1.8.0
 Werkzeug==3.0.4
+<<<<<<< HEAD
 whitenoise==6.8.2
+=======
+>>>>>>> 58e5503 (fixed days)
 wrapt==1.16.0
 xhtml2pdf==0.2.16
 zipp==3.19.2

@@ -18,7 +18,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" type="image/png" href="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png">
+  <link rel="icon" type="image/png" href="{% static 'assets/img/logodigi.png'%}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>Medical Reports</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -104,8 +104,8 @@
   <div id="myDiv" class="animate-bottom wrapper" style="display:none;position: relative;">
     <div class="sidebar" data-color="azure" data-background-color="black">
     <div class="logo"><a href="#" class="simple-text logo-normal">
-      <img src="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png">
-      <br>GROUP 20</a></div>
+      <img src="{% static 'assets/img/logodigi.png'%}" style="max-width: 60%; height: auto;">
+      <br>DigiCare PH</a></div>
     <div class="sidebar-wrapper">
       <ul class="nav">
         
@@ -121,37 +121,47 @@
             <p>Book Appointment</p>
           </a>
         </li>
-        <li class="nav-item ">
+        <!-- <li class="nav-item ">
             <a class="nav-link" href="{% url 'admit_details.html' %}">
               <i class="material-icons">content_paste</i>
               <p>Admit Details</p>
             </a>
-          </li>
+          </li> -->
         <li class="nav-item">
           <a class="nav-link" href="{% url 'yourhealth.html' %}">
             <i class="material-icons">favorite</i>
             <p>Your Health</p>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="{% url 'calladoc.html' %}">
             <i class="material-icons">library_books</i>
             <p>Call A Doc</p>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item active  ">
           <a class="nav-link" href="{% url 'medicalreport.html' %}">
             <i class="material-icons">favorite</i>
             <p>Medical Reports</p>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="{% url 'feedback.html' %}">
             <i class="material-icons">bubble_chart</i>
             <p>Feedback</p>
           </a>
+<<<<<<< HEAD
+<<<<<<< HEAD
+        </li> -->
+        <li class="nav-item " style="margin-top: 180px;">
+=======
         </li>
-        <li class="nav-item ">
+        <li class="nav-item " style="margin-top: 120px;">
+>>>>>>> 2a15965 (patient)
+=======
+        </li> -->
+        <li class="nav-item " style="margin-top: 180px;">
+>>>>>>> 1878b60 (remove feedback)
           <a class="nav-link" href="{% url 'logout' %}">
             <i class="material-icons">logout</i>
             <p>Logout</p>
@@ -160,45 +170,15 @@
       </ul>
     </div>
   </div>
-    <div class="main-panel">
-      <br><br>
-      <h1 style="color: #28acea">Admit Bills and Reports</h1>
-      <br>
-      <div class="container" style="margin-bottom: 200px;">
-        <div class="left">
-          <h2 style="color: #28acea">Bills</h2><br>
-          <ul class="options">
-            {% for i in padm %}
-              <li><a class="btn btn-primary btn-round btn-lg"href="{% url 'bill.html' i.1 %}" target="_blank"><b>{{ i.0 }}</b></a></li><br><br>
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="right">
-          <br><br><br><br>
-          <h2 style="color: #28acea">Reports</h2><br>
-          <ul class="options">
-            {% for i in padm %}
-              <li><a class="btn btn-primary btn-round btn-lg"href="{% url 'report.html' i.1 %}" target="_blank"><b>{{ i.0 }}</b></a></li><br><br>
-            {% endfor %}
-          </ul>
-        </div>
-    </div>
-    <h1 style="color: #28acea">Appointment Bills and Reports</h1>
+    <div class="main-panel"><br>
+    <h1 style="color: #bc7fcd">Appointment Reports</h1>
     <div class="container" style="margin-bottom: 200px;">
-      <div class="left">
-        <h2 style="color: #28acea">Bills</h2><br>
-        <ul class="options">
-          {% for i in papt %}
-            <li><a class="btn btn-primary btn-round btn-lg"href="{% url 'bill_apt.html' i.1 %}" target="_blank"><b>{{ i.0 }}</b></a></li><br><br>
-          {% endfor %}
-        </ul>
-      </div>
-      <div class="right">
+      <div class="left" style="text-align: center; margin: 0 auto; width: 80%;">
         <br><br><br><br>
-        <h2 style="color: #28acea">Reports</h2><br>
-        <ul class="options">
+        <ul class="options" style="display: flex; flex-wrap: wrap; padding: 0; list-style: none; justify-content: center;">
           {% for i in papt %}
-            <li><a class="btn btn-primary btn-round btn-lg"href="{% url 'report_apt.html' i.1 %}" target="_blank"><b>{{ i.0 }}</b></a></li><br><br>
+            <li style="flex: 1 0 18%; margin: 10px; margin-bottom: 50px;">
+              <a class="btn btn-primary btn-round btn-lg"href="{% url 'report_apt.html' i.1 %}"><b>{{ i.0 }}</b></a></li>
           {% endfor %}
         </ul>
       </div>

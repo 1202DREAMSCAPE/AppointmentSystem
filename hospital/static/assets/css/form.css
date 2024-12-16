@@ -66,7 +66,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  color: #8b0348;
+  color: #bc7fcd;
   font-size: 26px;
 }
 
@@ -78,7 +78,7 @@
   bottom: -10px;
   width: 25px;
   height: 4px;
-  background: #8b0348;
+  background: #bc7fcd;
 }
 
 .app-contact {
