@@ -30,7 +30,7 @@ SECRET_KEY = 'd&d%!!iph5fs6i8tmm!2=o=p4zi8fuw67@(&vlf3$(olghu#3h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['digicare-production-app-d62564394752.herokuapp.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['www.digicareph.icu', 'digicareph.icu','digicare-production-app-d62564394752.herokuapp.com', '127.0.0.1', 'localhost']
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
