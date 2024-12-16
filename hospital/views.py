@@ -9,7 +9,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from hospital.models import Doctor,Admin,Patient,Appointment,User,PatHealth,PatAdmit,Charges,DoctorProfessional,Medicines,OperationCosts,ChargesApt,CovidVaccination
 from django.contrib import auth
 from django.utils import timezone
-from datetime import date,timedelta,time,datetime
+from datetime import date,timedelta,time
 from django.http import HttpResponseRedirect
 
 ## For Invoice Function
@@ -413,7 +413,7 @@ def approve_appoint_view(request):
             d=c.doctor
             p=c.patient
             if d and p:
-                det.append([d.lastname,p.firstname + p.lastname,c.description,c.calldate,c.calltime,c.id])  #render information on webpage
+                det.append([d.firstname,p.firstname,c.description,c.calldate,c.calltime,c.id])  #render information on webpage
         return render(request,'hospital/Admin/approve_appoint.html',{'app':det})
     else:
         auth.logout(request)
@@ -465,8 +465,8 @@ def profile_adm_view(request):
 
 
 def check_avail(doc,dt,tm):     #check if doctor is available in a given slot
-    hr = tm[:-3]    #separate AM/PM
-    # hr = tm[:-3]    #get hour reading
+    tm = tm[:-3]    #separate AM/PM
+    hr = tm[:-3]    #get hour reading
     mn = tm[-2:]    #get minute reading
     ftm = time(int(hr),int(mn),0)   #create a time object
     k = Appointment.objects.all().filter(status=True,doctor=doc,calldate=dt)    #get all appointments for a given doc and the given date
@@ -488,22 +488,7 @@ def bookapp_view(request):
         for a in Appointment.objects.filter(patient=pat,status=False).all():
             k=a.doctor
             if k:
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 2a15965 (patient)
-                month = a.calldate.month
-            if month == 5:
-                formatted_date = f"{a.calldate.strftime('%b')} {a.calldate.strftime('%d, %Y')}"
-            else:
-                formatted_date = f"{a.calldate.strftime('%b')}. {a.calldate.strftime('%d, %Y')}"
-            app_det.append([f"Dr. {k.lastname}",a.description,k.department,formatted_date,a.calltime,a.status])
-<<<<<<< HEAD
-=======
-                app_det.append([f"Dr. {k.lastname}",a.description,k.department,a.calldate,a.calltime,a.status])
->>>>>>> b36f144 (patient screens)
-=======
->>>>>>> 2a15965 (patient)
+                app_det.append([k.firstname,a.description,k.department,a.calldate,a.calltime,a.status])
         if request.method=="POST":  #if patient books an appointment
             appointmentForm = PatientAppointmentForm(request.POST)
             if appointmentForm.is_valid():  #if form is valid
@@ -569,22 +554,7 @@ def appointment_details_particular_pat_view(request,pk):
         ad = Appointment.objects.filter(id=pk).first()
         pat = ad.patient
         doc = ad.doctor
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 2a15965 (patient)
-        month = ad.calldate.month
-        if month == 5:
-            formatted_date = f"{ad.calldate.strftime('%b')} {ad.calldate.strftime('%d, %Y')}"
-        else:
-            formatted_date = f"{ad.calldate.strftime('%b')}. {ad.calldate.strftime('%d, %Y')}"
-        det = [f"Dr. {doc.lastname}",f"{pat.firstname} {pat.lastname}",formatted_date,ad.link,ad.calltime,ad.description,ad.pk]
-<<<<<<< HEAD
-=======
-        det = [f"Dr. {doc.lastname}",f"{pat.firstname} {pat.lastname}",ad.calldate,ad.link,ad.calltime,ad.description,ad.pk]
->>>>>>> b36f144 (patient screens)
-=======
->>>>>>> 2a15965 (patient)
+        det = [doc.firstname,pat.firstname,ad.calldate,ad.link,ad.calltime,ad.description,ad.pk]
         med = Medicines.objects.all()
         return render(request,'hospital/Patient/bookapp_details_particular_pat.html',{'app':det,'med':med})
     else:
@@ -601,22 +571,7 @@ def pat_appointment_view(request):
             d=c.doctor
             p=c.patient
             if d and p:
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 2a15965 (patient)
-                month = c.calldate.month
-                if month == 5:
-                    formatted_date = f"{c.calldate.strftime('%b')} {c.calldate.strftime('%d, %Y')}"
-                else:
-                    formatted_date = f"{c.calldate.strftime('%b')}. {c.calldate.strftime('%d, %Y')}"
-                det.append([f"Dr. {d.lastname}",f"{p.firstname} {p.lastname}",c.description,c.link,formatted_date,c.calltime,c.pk])
-<<<<<<< HEAD
-=======
-                det.append([f"Dr. {d.lastname}",f"{p.firstname} {p.lastname}",c.description,c.link,c.calldate,c.calltime,c.pk])
->>>>>>> b36f144 (patient screens)
-=======
->>>>>>> 2a15965 (patient)
+                det.append([d.firstname,p.firstname,c.description,c.link,c.calldate,c.calltime,c.pk])
         return render(request,'hospital/Patient/appoint_view_pat.html',{'app':det})
     else:
         auth.logout(request)
@@ -677,17 +632,11 @@ def medicalreport_view(request):
         padm = PatAdmit.objects.all().filter(patient=pat).order_by('admitDate')
         det=[]
         for p in padm:
-            formatted_admit_date = p.admitDate.strftime('%b. %d, %Y')
-            det.append([formatted_admit_date,p.pk])
+            det.append([p.admitDate,p.pk])
         papt = Appointment.objects.all().filter(patient=pat,status=True).order_by('calldate')
         d=[]
         for p in papt:
-            month = p.calldate.month
-            if month == 5:
-                formatted_date = f"{p.calldate.strftime('%b')} {p.calldate.strftime('%d, %Y')}"
-            else:
-                formatted_date = f"{p.calldate.strftime('%b')}. {p.calldate.strftime('%d, %Y')}"
-            d.append([formatted_date,p.pk])
+            d.append([p.calldate,p.pk])
         return render(request,'hospital/Patient/medicalreport.html',{'padm':det,'papt':d})
     else:
         auth.logout(request)
@@ -826,16 +775,10 @@ def yourhealth_view(request):
         info=PatHealth.objects.filter(patient=pat).first()
         #calculate age
         db=pat.dob
-        print("Patient DOB:", db)
         today = date.today()
         ag =  today.year - db.year - ((today.month, today.day) < (db.month, db.day))
-        context = {
-            'info': info,
-            'pat': pat,
-            'age':ag
-        }
         if info.status:
-            return render(request,'hospital/Patient/yourhealth.html',context)
+            return render(request,'hospital/Patient/yourhealth.html',{'info':info,'pat':pat,'age':ag})
         else:
             return redirect('edityourhealth.html')
     else:
@@ -1302,7 +1245,7 @@ def bill_apt_view(request,pk):
     d=apt.calldate
     t=apt.calltime
     docpro=DoctorProfessional.objects.all().filter(doctor=doc).first()
-    docfee=docpro.admfees
+    docfee=docpro.appfees
     hosp=OperationCosts.objects.all().filter(name='Hospital Fee').first()
     hospfee=hosp.cost
     mainp=OperationCosts.objects.all().filter(name='Maintenance').first()
@@ -1389,24 +1332,10 @@ def report_apt_view(request,pk):
         for k in Medicines.objects.all():
             if k==i.commodity:
                 det.append([k.name])
-    month = apt.calldate.month
-    if month == 5:
-        formatted_date = f"{apt.calldate.strftime('%b')} {apt.calldate.strftime('%d, %Y')}"
-    else:
-        formatted_date = f"{apt.calldate.strftime('%b')}. {apt.calldate.strftime('%d, %Y')}"
-    formatted_calldate = d.strftime('%b. %d, %Y')
     dict={
-            'patientName':pat.firstname + " " + pat.lastname,
-            'doctorName':"Dr. " + doc.lastname,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            'aptDate':formatted_date,
-=======
+            'patientName':pat.firstname,
+            'doctorName':doc.firstname,
             'aptDate':d,
->>>>>>> b36f144 (patient screens)
-=======
-            'aptDate':formatted_date,
->>>>>>> 2a15965 (patient)
             'aptTime':t,
             'desc':apt.description,
             'pat_add':pat.address,
@@ -1592,7 +1521,7 @@ def render_pdf_bill_apt_view(request,pk):
     d=apt.calldate
     t=apt.calltime
     docpro=DoctorProfessional.objects.all().filter(doctor=doc).first()
-    docfee=docpro.docfees
+    docfee=docpro.appfees
     hosp=OperationCosts.objects.all().filter(name='Hospital Fee').first()
     hospfee=hosp.cost
     mainp=OperationCosts.objects.all().filter(name='Maintenance').first()
