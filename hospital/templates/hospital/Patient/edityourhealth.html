@@ -153,29 +153,49 @@
   </div>
     <div class="main-panel" style="text-align: center;">
       <br><br>
+<<<<<<< HEAD
       <h1 style="color: #bc7fcd"><b>Your Health</b></h1>
+=======
+      <h1 style="color: #bc7fcd">Your Health</h1>
+>>>>>>> b36f144 (patient screens)
       <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
       <div class="container" style="padding-left: 110px;">
         <div class="box">
+<<<<<<< HEAD
           <h1 style="font-size: 30px; color: #bc7fcd"><b>Basic Information</b></h1><hr><br>
+=======
+          <h1 style="font-size: 30px; color: #bc7fcd">Basic Information</h1><hr><br>
+>>>>>>> b36f144 (patient screens)
           <p class="list"><img src="https://img.icons8.com/color/26/000000/christmas-star.png" class="mr-1 " width="19" height="19" id="star" style="align-self: left;"> <b>Height:</b> {{ p_form.height|add_class:"form-control form-control-alternative" }} cm</p>{{ p_form.height.errors }}
           <p class="list"><img src="https://img.icons8.com/color/26/000000/christmas-star.png" class="mr-1 " width="19" height="19" id="star" style="align-self: left;"> <b>Weight:</b> {{ p_form.weight|add_class:"form-control form-control-alternative" }} kg</p>{{ p_form.weight.errors }}
         </div>
         <br><br>
         <div class="box">
+<<<<<<< HEAD
           <h1 style="font-size: 30px; color: #bc7fcd"><b>Diseases</b></h1><hr><br>
+=======
+          <h1 style="font-size: 30px; color: #bc7fcd">Diseases</h1><hr><br>
+>>>>>>> b36f144 (patient screens)
           {{ p_form.diseases|add_class:"form-control form-control-alternative" }}
           {{ p_form.diseases.errors }}
         </div>
         <br><br>
         <div class="box">
+<<<<<<< HEAD
           <h1 style="font-size: 30px; color: #bc7fcd"><b>Medicines</b></h1><hr><br>
+=======
+          <h1 style="font-size: 30px; color: #bc7fcd">Medicines</h1><hr><br>
+>>>>>>> b36f144 (patient screens)
           {{ p_form.medicines|add_class:"form-control form-control-alternative" }}
         </div>
         <br><br>
         <div class="box">
+<<<<<<< HEAD
           <h1 style="font-size: 30px; color: #bc7fcd"><b>Treatments/Surgery</b></h1><hr><br>
+=======
+          <h1 style="font-size: 30px; color: #bc7fcd">Treatments/Surgery</h1><hr><br>
+>>>>>>> b36f144 (patient screens)
           {{ p_form.ts|add_class:"form-control form-control-alternative" }}
         </div>
       </div>
