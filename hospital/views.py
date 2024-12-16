@@ -488,12 +488,16 @@ def bookapp_view(request):
         for a in Appointment.objects.filter(patient=pat,status=False).all():
             k=a.doctor
             if k:
+<<<<<<< HEAD
                 month = a.calldate.month
             if month == 5:
                 formatted_date = f"{a.calldate.strftime('%b')} {a.calldate.strftime('%d, %Y')}"
             else:
                 formatted_date = f"{a.calldate.strftime('%b')}. {a.calldate.strftime('%d, %Y')}"
             app_det.append([f"Dr. {k.lastname}",a.description,k.department,formatted_date,a.calltime,a.status])
+=======
+                app_det.append([f"Dr. {k.lastname}",a.description,k.department,a.calldate,a.calltime,a.status])
+>>>>>>> b36f144 (patient screens)
         if request.method=="POST":  #if patient books an appointment
             appointmentForm = PatientAppointmentForm(request.POST)
             if appointmentForm.is_valid():  #if form is valid
@@ -559,12 +563,16 @@ def appointment_details_particular_pat_view(request,pk):
         ad = Appointment.objects.filter(id=pk).first()
         pat = ad.patient
         doc = ad.doctor
+<<<<<<< HEAD
         month = ad.calldate.month
         if month == 5:
             formatted_date = f"{ad.calldate.strftime('%b')} {ad.calldate.strftime('%d, %Y')}"
         else:
             formatted_date = f"{ad.calldate.strftime('%b')}. {ad.calldate.strftime('%d, %Y')}"
         det = [f"Dr. {doc.lastname}",f"{pat.firstname} {pat.lastname}",formatted_date,ad.link,ad.calltime,ad.description,ad.pk]
+=======
+        det = [f"Dr. {doc.lastname}",f"{pat.firstname} {pat.lastname}",ad.calldate,ad.link,ad.calltime,ad.description,ad.pk]
+>>>>>>> b36f144 (patient screens)
         med = Medicines.objects.all()
         return render(request,'hospital/Patient/bookapp_details_particular_pat.html',{'app':det,'med':med})
     else:
@@ -581,12 +589,16 @@ def pat_appointment_view(request):
             d=c.doctor
             p=c.patient
             if d and p:
+<<<<<<< HEAD
                 month = c.calldate.month
                 if month == 5:
                     formatted_date = f"{c.calldate.strftime('%b')} {c.calldate.strftime('%d, %Y')}"
                 else:
                     formatted_date = f"{c.calldate.strftime('%b')}. {c.calldate.strftime('%d, %Y')}"
                 det.append([f"Dr. {d.lastname}",f"{p.firstname} {p.lastname}",c.description,c.link,formatted_date,c.calltime,c.pk])
+=======
+                det.append([f"Dr. {d.lastname}",f"{p.firstname} {p.lastname}",c.description,c.link,c.calldate,c.calltime,c.pk])
+>>>>>>> b36f144 (patient screens)
         return render(request,'hospital/Patient/appoint_view_pat.html',{'app':det})
     else:
         auth.logout(request)
@@ -1368,7 +1380,11 @@ def report_apt_view(request,pk):
     dict={
             'patientName':pat.firstname + " " + pat.lastname,
             'doctorName':"Dr. " + doc.lastname,
+<<<<<<< HEAD
             'aptDate':formatted_date,
+=======
+            'aptDate':d,
+>>>>>>> b36f144 (patient screens)
             'aptTime':t,
             'desc':apt.description,
             'pat_add':pat.address,
