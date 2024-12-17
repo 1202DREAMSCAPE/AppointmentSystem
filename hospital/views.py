@@ -488,7 +488,12 @@ def bookapp_view(request):
         for a in Appointment.objects.filter(patient=pat,status=False).all():
             k=a.doctor
             if k:
-                app_det.append([k.firstname,a.description,k.department,a.calldate,a.calltime,a.status])
+                month = a.calldate.month
+            if month == 5:
+                formatted_date = f"{a.calldate.strftime('%b')} {a.calldate.strftime('%d, %Y')}"
+            else:
+                formatted_date = f"{a.calldate.strftime('%b')}. {a.calldate.strftime('%d, %Y')}"
+            app_det.append([f"Dr. {k.lastname}",a.description,k.department,formatted_date,a.calltime,a.status])
         if request.method=="POST":  #if patient books an appointment
             appointmentForm = PatientAppointmentForm(request.POST)
             if appointmentForm.is_valid():  #if form is valid
