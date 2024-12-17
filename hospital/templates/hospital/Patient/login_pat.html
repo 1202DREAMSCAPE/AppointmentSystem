@@ -111,11 +111,10 @@
   <!-- Login Form -->
   <div class="form-container">
     <h1>Patient Login</h1>
-    <form method="POST">
+    <form class="app-form" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
-      <input type="text" name="username" placeholder="Username" required />
-      <input type="password" name="password" placeholder="Password" required />
-      <input type="submit" value="Login" />
+      {{ form.as_p}}
+      <input type="submit" value="Login" class='btn btn-primary btn-lg' style="margin-top: 30px;margin-bottom: 50px">
     </form>
     <a href="{% url 'password_reset' %}">Forgot Password?</a>
     <a href="{% url 'register_pat.html' %}">Sign Up Now</a>

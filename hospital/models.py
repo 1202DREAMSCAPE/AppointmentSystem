@@ -123,7 +123,7 @@ class DoctorProfessional(models.Model): #professional details of a doctor
     admfees=models.FloatField() #admit fees for doctor
     totalpat = models.IntegerField(default=0)   #total patients treated by doctor
     def __str__(self):
-        return f'Dr. {self.doctor.lastname} Professional Info'
+        return f'{self.doctor.firstname} Professional Info'
 
 
 class OperationCosts(models.Model):     #for easier and smoother day-to-day hospital works, admin can change costs
