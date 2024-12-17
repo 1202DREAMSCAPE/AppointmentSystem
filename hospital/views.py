@@ -413,7 +413,7 @@ def approve_appoint_view(request):
             d=c.doctor
             p=c.patient
             if d and p:
-                det.append([d.firstname,p.firstname,c.description,c.calldate,c.calltime,c.id])  #render information on webpage
+                det.append([d.lastname,p.firstname + p.lastname,c.description,c.calldate,c.calltime,c.id])  #render information on webpage
         return render(request,'hospital/Admin/approve_appoint.html',{'app':det})
     else:
         auth.logout(request)
@@ -465,8 +465,8 @@ def profile_adm_view(request):
 
 
 def check_avail(doc,dt,tm):     #check if doctor is available in a given slot
-    tm = tm[:-3]    #separate AM/PM
-    hr = tm[:-3]    #get hour reading
+    hr = tm[:-3]    #separate AM/PM
+    # hr = tm[:-3]    #get hour reading
     mn = tm[-2:]    #get minute reading
     ftm = time(int(hr),int(mn),0)   #create a time object
     k = Appointment.objects.all().filter(status=True,doctor=doc,calldate=dt)    #get all appointments for a given doc and the given date
@@ -559,7 +559,7 @@ def appointment_details_particular_pat_view(request,pk):
         ad = Appointment.objects.filter(id=pk).first()
         pat = ad.patient
         doc = ad.doctor
-        det = [doc.firstname,pat.firstname,ad.calldate,ad.link,ad.calltime,ad.description,ad.pk]
+        det = [f"Dr. {doc.lastname}",f"{pat.firstname} {pat.lastname}",ad.calldate,ad.link,ad.calltime,ad.description,ad.pk]
         med = Medicines.objects.all()
         return render(request,'hospital/Patient/bookapp_details_particular_pat.html',{'app':det,'med':med})
     else:
@@ -576,7 +576,7 @@ def pat_appointment_view(request):
             d=c.doctor
             p=c.patient
             if d and p:
-                det.append([d.firstname,p.firstname,c.description,c.link,c.calldate,c.calltime,c.pk])
+                det.append([f"Dr. {d.lastname}",f"{p.firstname} {p.lastname}",c.description,c.link,c.calldate,c.calltime,c.pk])
         return render(request,'hospital/Patient/appoint_view_pat.html',{'app':det})
     else:
         auth.logout(request)
