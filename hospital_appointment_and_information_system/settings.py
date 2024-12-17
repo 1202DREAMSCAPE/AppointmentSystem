@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'hospital_appointment_and_information_system.wsgi.application
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://localhost:5432/mydatabase'
+        default='postgres://u8eklg13ud3re4:p3d5b98e8ca53c66f66159462d5dbe078d3e6688a048d76ef5cdda1f9dd955529@c3gtj1dt5vh48j.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d9fhsae2mpd34e'
     )
 }
 
