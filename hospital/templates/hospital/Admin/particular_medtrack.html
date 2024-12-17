@@ -166,54 +166,29 @@ padding-right: 15px;}
 }
 
 th {
-    border: 1px solid #28acea;
+    border: 5px solid #86469c;
     border-collapse: collapse;
-    padding:10px;
+    padding:25px;
 }
 
 td {
-    border: 1px solid #28acea;
+    border: 3px solid #86469c;
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
-    padding:10px;
+    padding:15px;
 }
 
 
     </style>
-  <script>
-    $(document).ready(function(){
-      var dragTheme = window.localStorage.getItem('checkbox');
-      if(dragTheme==="true"){
-        $("#jhamela").removeClass("darkEdition");
-          window.localStorage.setItem('checkbox', true);
-          var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme);
-          $("#checkbox").click();
-      }
-      $("#checkbox").click(function(){
-        if($('#checkbox').prop("checked")){
-          $("#jhamela").removeClass("darkEdition");
-          window.localStorage.setItem('checkbox', true);
-          var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme); 
-        }
-        else{
-          $("#jhamela").addClass("darkEdition");
-          window.localStorage.setItem('checkbox', false);
-          var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme); 
-        }
-      });
-    });
-  </script>
+
 </head>
 
-<body id="jhamela" class="darkEdition lightEdition">
+<body>
   {% include "hospital/Home/preloader.html" %}
 
   <div id="myDiv" class="animate-bottom wrapper" style="display:none;text-align: center;position: relative;">
-    <div class="sidebar" data-color="azure" data-background-color="black" data-image="{% static 'assets/img/sidebar-2.jpg'%}">
+    <div class="sidebar" data-color="azure" data-background-color="black" style="background-color: #86469c;" data-image="{% static 'assets/img/sidebar-2.jpg'%}">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -222,9 +197,9 @@ td {
     <div class="logo"><a href="#" class="simple-text logo-normal">
       <img src="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png">
       <br> 
-      GROUP 20
+      DigiCare
       </a></div>
-    <div class="sidebar-wrapper">
+    <div class="sidebar-wrapper" style="background-color: #86469c;">
       <ul class="nav">
         <li class="nav-item  active">
           <a class="nav-link" href="{% url 'dashboard_adm.html' %}">
@@ -279,14 +254,14 @@ td {
   </div>
     
     <div class="main-panel sps">
-                <div class="sps" style="width: 85%;margin-left: auto;margin-right: auto;">
+                <div class="sps" style="width: 100%;margin-left: auto;margin-right: auto;">
                     <center>
 
 
 
                         <div class="sps">
 
-                            <h2 class="sps">Medicine Details</h2>
+                            <h2 class="sps" style="background-color: #86469c; color: #fff; font-size: 45px; font-weight: 700;">Medicine Details</h2>
                             <table class="sps">
                                 <thead>
                                     <tr class="sps">

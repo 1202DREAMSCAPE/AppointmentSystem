@@ -1,19 +1,5 @@
 {% load static %}
 {% load widget_tweaks %}
-<!--
-=========================================================
-* Material Dashboard Dark Edition - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-dark
-* Copyright 2019 Creative Tim (http://www.creative-tim.com)
-
-* Coded by www.creative-tim.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,7 +45,7 @@
     }
 
     .market-update-block.clr-block-1 {
-      background: #ff0000;
+      background: #bc7fcd;
       margin-right: 0.8em;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
       transition: 0.5s all;
@@ -69,7 +55,7 @@
     }
 
     .market-update-block.clr-block-2 {
-      background: #4f5905;
+      background: #bc7fcd;
       margin-right: 0.8em;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
       transition: 0.5s all;
@@ -79,7 +65,7 @@
     }
 
     .market-update-block.clr-block-3 {
-      background: #1355f9;
+      background:#bc7fcd;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
       transition: 0.5s all;
       -webkit-transition: 0.5s all;
@@ -88,7 +74,7 @@
     }
 
     .market-update-block.clr-block-1:hover {
-      background: #3C3C3C;
+      background:#bc7fcd;
       transition: 0.5s all;
       -webkit-transition: 0.5s all;
       -moz-transition: 0.5s all;
@@ -96,7 +82,7 @@
     }
 
     .market-update-block.clr-block-2:hover {
-      background: #3C3C3C;
+      background:#bc7fcd;
       transition: 0.5s all;
       -webkit-transition: 0.5s all;
       -moz-transition: 0.5s all;
@@ -104,7 +90,7 @@
     }
 
     .market-update-block.clr-block-3:hover {
-      background: #3C3C3C;
+      background: #bc7fcd;
       transition: 0.5s all;
       -webkit-transition: 0.5s all;
       -moz-transition: 0.5s all;
@@ -114,7 +100,7 @@
     .market-update-right i.fa.fa-user-o,
     i.fa.fa-map-marker {
       font-size: 3em;
-      color: #112240;
+      color: #86469C;
       width: 80px;
       height: 80px;
       background: #fff;
@@ -129,7 +115,7 @@
     .market-update-right i.fa.fa-info-circle,
     i.fa.fa-list-alt {
       font-size: 3em;
-      color: #FC8213;
+      color: #86469c;
       width: 80px;
       height: 80px;
       background: #fff;
@@ -144,7 +130,7 @@
     .market-update-right i.fa.fa-mobile,
     i.fa.fa-calendar-o {
       font-size: 3em;
-      color: #337AB7;
+      color:#86469C;
       width: 80px;
       height: 80px;
       background: #fff;
@@ -179,47 +165,21 @@ padding-right: 15px;}
 }
 
 th {
-    border: 1px solid #28acea;
+    border: 5px solid #86469c;
     border-collapse: collapse;
-    padding:10px;
+    padding:25px;
 }
 
 td {
-    border: 1px solid #28acea;
+    border: 3px solid #86469c;
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
-    padding:10px;
+    padding:15px;
 }
 
 
     </style>
-  <script>
-    $(document).ready(function(){
-      var dragTheme = window.localStorage.getItem('checkbox');
-      if(dragTheme==="true"){
-        $("#jhamela").removeClass("darkEdition");
-          window.localStorage.setItem('checkbox', true);
-          var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme);
-          $("#checkbox").click();
-      }
-      $("#checkbox").click(function(){
-        if($('#checkbox').prop("checked")){
-          $("#jhamela").removeClass("darkEdition");
-          window.localStorage.setItem('checkbox', true);
-          var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme); 
-        }
-        else{
-          $("#jhamela").addClass("darkEdition");
-          window.localStorage.setItem('checkbox', false);
-          var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme); 
-        }
-      });
-    });
-  </script>
   <script>
       function add_charge() {
         var v1 = document.getElementById('comm');
@@ -238,11 +198,11 @@ td {
   </script>
 </head>
 
-<body id="jhamela" class="darkEdition lightEdition">
+<body>
   {% include "hospital/Home/preloader.html" %}
 
   <div id="myDiv" class="animate-bottom wrapper" style="display:none;text-align: center;position: relative;">
-    <div class="sidebar" data-color="azure" data-background-color="black" data-image="{% static 'assets/img/sidebar-1.jpg'%}">
+    <div class="sidebar" data-color="azure" data-background-color="black"  style="background-color: #86469C;" data-image="{% static 'assets/img/sidebar-1.jpg'%}">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -251,9 +211,9 @@ td {
     <div class="logo"><a href="#" class="simple-text logo-normal">
       <img src="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png">
       <br> 
-      GROUP 20
+      DigiCare
       </a></div>
-    <div class="sidebar-wrapper">
+    <div class="sidebar-wrapper" style="background-color: #86469C;">
       <ul class="nav">
         <li class="nav-item ">
             <a class="nav-link" href="{% url 'dashboard_adm.html' %}">
@@ -409,13 +369,13 @@ td {
         <center>
         <br>
         <br>
-        <a class="btn btn-primary btn-round btn-lg" href="{% url 'report.html' app.6 %}" target="_blank"><b>View Medical Report</b></a>
-        <a class="btn btn-primary btn-round btn-lg" href="{% url 'bill.html' app.6 %}" target="_blank"><b>View Bill</b></a>
+        <a class="btn  btn-round btn-lg btn-align-center" style="background-color: #fb9ad1; color: black;" href="{% url 'report.html' app.6 %}" target="_blank"><b>View Medical Report</b></a>
+        <a class="btn  btn-round btn-lg" style="background-color: #fb9ad1; color: black;" href="{% url 'bill.html' app.6 %}" target="_blank"><b>View Bill</b></a>
         </center>
 
     </div>
       <br><br><br><br><br><br><br><br><br><br><br><br>
-      {% include "hospital//Doctor/footer.html" %}
+      {% include "hospital/Admin/footer.html" %}
     </div>
   </div>
   <!--   Core JS Files   -->

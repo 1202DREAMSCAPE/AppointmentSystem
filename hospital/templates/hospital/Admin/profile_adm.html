@@ -1,19 +1,6 @@
 {% load static %}
 {% load widget_tweaks %}
-<!--
-=========================================================
-* Material Dashboard Dark Edition - v2.1.0
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard-dark
-* Copyright 2019 Creative Tim (http://www.creative-tim.com)
-
-* Coded by www.creative-tim.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,32 +15,7 @@
   <!-- CSS Files -->
   <link href="{% static 'assets/css/material-dashboard.css'%}" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      var dragTheme = window.localStorage.getItem('checkbox');
-      if(dragTheme==="true"){
-        $("#jhamela").removeClass("darkEdition");
-          window.localStorage.setItem('checkbox', true);
-          var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme);
-          $("#checkbox").click();
-      }
-      $("#checkbox").click(function(){
-        if($('#checkbox').prop("checked")){
-          $("#jhamela").removeClass("darkEdition");
-          window.localStorage.setItem('checkbox', true);
-          var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme); 
-        }
-        else{
-          $("#jhamela").addClass("darkEdition");
-          window.localStorage.setItem('checkbox', false);
-          var dragTheme = window.localStorage.getItem('checkbox');
-          console.log(dragTheme); 
-        }
-      });
-    });
-  </script>
+
   <style>
 
 * {
@@ -257,11 +219,11 @@ h1{
 }
     </style>
 </head>
-<body id="jhamela" class="darkEdition lightEdition">
+<body>
   {% include "hospital/Home/preloader.html" %}
 
   <div id="myDiv" class="animate-bottom wrapper" style="display:none;text-align: center;position: relative;">
-    <div class="sidebar" data-color="azure" data-background-color="black" data-image="{% static 'assets/img/sidebar-2.jpg'%}">
+    <div class="sidebar" data-color="azure" data-background-color="black" style="background-color: #86469c;" data-image="{% static 'assets/img/sidebar-2.jpg'%}">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -272,7 +234,7 @@ h1{
       <br> 
       DigiCare
       </a></div>
-    <div class="sidebar-wrapper">
+    <div class="sidebar-wrapper" style="background-color: #86469c;">
       <ul class="nav">
         <li class="nav-item ">
           <a class="nav-link" href="{% url 'dashboard_adm.html' %}">
@@ -326,11 +288,11 @@ h1{
     </div>
   </div>
 
-  <div class="main-panel">
+  <div class="main-panel" >
     <div class="main-content">
       <!-- Header -->
       <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center">
-        <h1 style="color: #86469c; text-align: center; font-weight:800;">Profile</h1>
+        <h1 style="color: #86469c; text-align: right; font-weight:900; font-size: 70px;">Profile</h1>
         <!-- Mask -->
         <span class="mask bg-gradient-default opacity-8"></span>
         <!-- Header container -->
@@ -341,12 +303,12 @@ h1{
           </div>
         </div>
       </div>
-      <div class="main-content">
-        <div class="container-fluid mt--7">
+      <div class="main-content" >
+        <div class="container-fluid mt--5" >
           <div class="row">
             <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
-              <div class="card card-profile shadow" style="background-color: rgb(247, 244, 244);">
-                <div class="row justify-content-center">
+              <div class="card card-profile shadow" style="background-color: #ffcdea;">
+                <div class="row justify-content-center" style="background-color: #fb9ad1;">
                   <div class="col-lg-3 order-lg-2">
                     <div class="card-profile-image">
                       <a href="#">
@@ -365,7 +327,7 @@ h1{
                   </div>
                   <div class="text-center sps">
                     <h3>
-                      {{ adm.firstname }} {{ adm.lastname }}<span class="font-weight-light">, {{ ag }}</span>
+                      {{ adm.firstname }} {{ adm.lastname }}<span class="font-weight-light" >, {{ ag }}</span>
                     </h3>
                     <div class="h5 font-weight-300">
                       <i class="ni location_pin mr-2"></i>{{ adm.city }}, {{ adm.country }}
@@ -375,7 +337,7 @@ h1{
               </div>
             </div>
               
-            <div class="col-xl-8 order-xl-1">
+            <div class="col-xl-8 order-xl-1" style="background-color: #ffcdea;">
               <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="card">
@@ -385,13 +347,13 @@ h1{
                         <div class="row">
                           <div class="col-lg-6">
                             <div class="form-group focused">
-                              <label class="form-control-label" for="input-username" style="color: #fff;">Username</label>
+                              <label class="form-control-label" for="input-username" style="color: #86469C; font-weight: 600;">Username</label>
                               <input readonly type="text" id="input-username" class="form-control form-control-alternative" placeholder="{{ user.username }}">
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group">
-                              <label class="form-control-label" for="input-email" style="color: #fff;">Email address</label>
+                              <label class="form-control-label" for="input-email" style="color: #86469C; font-weight: 600">Email address</label>
                               <input readonly type="email" id="input-email" class="form-control form-control-alternative" placeholder="{{ user.email }}">
                             </div>
                           </div>
@@ -399,14 +361,14 @@ h1{
                         <div class="row">
                           <div class="col-lg-6">
                             <div class="form-group focused">
-                              <label class="form-control-label" for="input-first-name" style="color: #fff;">First Name</label>
+                              <label class="form-control-label" for="input-first-name" style="color: #86469C; font-weight: 600;">First Name</label>
                                 {{ p_form.firstname|add_class:"form-control form-control-alternative" }}
                                 {{ p_form.firstname.errors }}
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group">
-                              <label class="form-control-label" for="input-last-name" style="color: #fff;">Last Name</label>
+                              <label class="form-control-label" for="input-last-name" style="color: #86469C; font-weight: 600;">Last Name</label>
                               {{ p_form.lastname|add_class:"form-control form-control-alternative" }}
                               {{ p_form.lastname.errors }}
                             </div>
@@ -415,13 +377,13 @@ h1{
                         <div class="row">
                           <div class="col-lg-6">
                             <div class="form-group focused">
-                              <label class="form-control-label" for="input-age" style="color: #fff;">Age</label>
+                              <label class="form-control-label" for="input-age" style="color: #86469C; font-weight: 600;">Age</label>
                               <input readonly type="text" id="input-username" class="form-control form-control-alternative" placeholder="{{ ag }}">
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group">
-                              <label class="form-control-label" for="input-date" style="color: #fff;">Date of Birth</label>
+                              <label class="form-control-label" for="input-date" style="color: #86469C; font-weight: 600;">Date of Birth</label>
                               {{ p_form.dob|add_class:"form-control form-control-alternative" }}
                               {{ p_form.dob.errors }}
                             </div>
@@ -433,7 +395,7 @@ h1{
                         <div class="row">
                           <div class="col-md-12">
                             <div class="form-group focused">
-                              <label class="form-control-label" for="input-address" style="color: #fff;">Address</label>
+                              <label class="form-control-label" for="input-address" style="color: #86469C; font-weight: 600">Address</label>
                               {{ p_form.address|add_class:"form-control form-control-alternative" }}
                               {{ p_form.address.errors }}
                             </div>
@@ -442,28 +404,28 @@ h1{
                         <div class="row">
                           <div class="col-lg-4">
                             <div class="form-group focused">
-                              <label class="form-control-label" for="input-city" style="color: #fff;">City</label>
+                              <label class="form-control-label" for="input-city" style="color: #86469C; font-weight: 600;">City</label>
                               {{ p_form.city|add_class:"form-control form-control-alternative" }}
                               {{ p_form.city.errors }}
                             </div>
                           </div>
                           <div class="col-lg-4">
                             <div class="form-group focused">
-                              <label class="form-control-label" for="input-country" style="color: #fff;">Country</label>
+                              <label class="form-control-label" for="input-country" style="color: #86469C; font-weight: 600;">Country</label>
                               {{ p_form.country|add_class:"form-control form-control-alternative" }}
                               {{ p_form.country.errors }}
                             </div>
                           </div>
                           <div class="col-lg-4">
                             <div class="form-group">
-                              <label class="form-control-label" for="input-postalcode" style="color: #fff;">Postal code</label>
+                              <label class="form-control-label" for="input-postalcode" style="color: #86469C; font-weight: 600;">Postal code</label>
                               {{ p_form.postalcode|add_class:"form-control form-control-alternative" }}
                               {{ p_form.postalcode.errors }}
                             </div>
                           </div>
                           <div class="col-md-12">
                             <div class="form-group">
-                              <label class="form-control-label" for="input-image" style="color: #fff;">Profile Pic</label>
+                              <label class="form-control-label" for="input-image" style="color:#86469C; font-weight: 600;">Profile Pic</label>
                               {{ p_form.image|add_class:"form-control form-control-alternative" }}
                             </div>
                           </div>
@@ -472,7 +434,7 @@ h1{
                     </div>
                   </p>
                   <div class="form-group">
-                    <button class="btn btn-sm" type="submit" style="background-color: #86469C; color: white;">Update</button>
+                    <button class="btn btn-sm" type="submit" style="background-color: #fb9ad1; color: white;">Update</button>
                 </div>
                   </div>
   
