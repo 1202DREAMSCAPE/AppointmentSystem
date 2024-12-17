@@ -1250,7 +1250,7 @@ def bill_apt_view(request,pk):
     d=apt.calldate
     t=apt.calltime
     docpro=DoctorProfessional.objects.all().filter(doctor=doc).first()
-    docfee=docpro.appfees
+    docfee=docpro.admfees
     hosp=OperationCosts.objects.all().filter(name='Hospital Fee').first()
     hospfee=hosp.cost
     mainp=OperationCosts.objects.all().filter(name='Maintenance').first()
@@ -1338,8 +1338,8 @@ def report_apt_view(request,pk):
             if k==i.commodity:
                 det.append([k.name])
     dict={
-            'patientName':pat.firstname,
-            'doctorName':doc.firstname,
+            'patientName':pat.firstname + " " + pat.lastname,
+            'doctorName':"Dr. " + doc.lastname,
             'aptDate':d,
             'aptTime':t,
             'desc':apt.description,
@@ -1526,7 +1526,7 @@ def render_pdf_bill_apt_view(request,pk):
     d=apt.calldate
     t=apt.calltime
     docpro=DoctorProfessional.objects.all().filter(doctor=doc).first()
-    docfee=docpro.appfees
+    docfee=docpro.docfees
     hosp=OperationCosts.objects.all().filter(name='Hospital Fee').first()
     hospfee=hosp.cost
     mainp=OperationCosts.objects.all().filter(name='Maintenance').first()
