@@ -9,7 +9,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from hospital.models import Doctor,Admin,Patient,Appointment,User,PatHealth,PatAdmit,Charges,DoctorProfessional,Medicines,OperationCosts,ChargesApt,CovidVaccination
 from django.contrib import auth
 from django.utils import timezone
-from datetime import date,timedelta,time
+from datetime import date,timedelta,time,datetime
 from django.http import HttpResponseRedirect
 
 ## For Invoice Function
@@ -559,7 +559,12 @@ def appointment_details_particular_pat_view(request,pk):
         ad = Appointment.objects.filter(id=pk).first()
         pat = ad.patient
         doc = ad.doctor
-        det = [f"Dr. {doc.lastname}",f"{pat.firstname} {pat.lastname}",ad.calldate,ad.link,ad.calltime,ad.description,ad.pk]
+        month = ad.calldate.month
+        if month == 5:
+            formatted_date = f"{ad.calldate.strftime('%b')} {ad.calldate.strftime('%d, %Y')}"
+        else:
+            formatted_date = f"{ad.calldate.strftime('%b')}. {ad.calldate.strftime('%d, %Y')}"
+        det = [f"Dr. {doc.lastname}",f"{pat.firstname} {pat.lastname}",formatted_date,ad.link,ad.calltime,ad.description,ad.pk]
         med = Medicines.objects.all()
         return render(request,'hospital/Patient/bookapp_details_particular_pat.html',{'app':det,'med':med})
     else:
@@ -576,7 +581,12 @@ def pat_appointment_view(request):
             d=c.doctor
             p=c.patient
             if d and p:
-                det.append([f"Dr. {d.lastname}",f"{p.firstname} {p.lastname}",c.description,c.link,c.calldate,c.calltime,c.pk])
+                month = c.calldate.month
+                if month == 5:
+                    formatted_date = f"{c.calldate.strftime('%b')} {c.calldate.strftime('%d, %Y')}"
+                else:
+                    formatted_date = f"{c.calldate.strftime('%b')}. {c.calldate.strftime('%d, %Y')}"
+                det.append([f"Dr. {d.lastname}",f"{p.firstname} {p.lastname}",c.description,c.link,formatted_date,c.calltime,c.pk])
         return render(request,'hospital/Patient/appoint_view_pat.html',{'app':det})
     else:
         auth.logout(request)
@@ -637,11 +647,17 @@ def medicalreport_view(request):
         padm = PatAdmit.objects.all().filter(patient=pat).order_by('admitDate')
         det=[]
         for p in padm:
-            det.append([p.admitDate,p.pk])
+            formatted_admit_date = p.admitDate.strftime('%b. %d, %Y')
+            det.append([formatted_admit_date,p.pk])
         papt = Appointment.objects.all().filter(patient=pat,status=True).order_by('calldate')
         d=[]
         for p in papt:
-            d.append([p.calldate,p.pk])
+            month = p.calldate.month
+            if month == 5:
+                formatted_date = f"{p.calldate.strftime('%b')} {p.calldate.strftime('%d, %Y')}"
+            else:
+                formatted_date = f"{p.calldate.strftime('%b')}. {p.calldate.strftime('%d, %Y')}"
+            d.append([formatted_date,p.pk])
         return render(request,'hospital/Patient/medicalreport.html',{'padm':det,'papt':d})
     else:
         auth.logout(request)
@@ -782,8 +798,13 @@ def yourhealth_view(request):
         db=pat.dob
         today = date.today()
         ag =  today.year - db.year - ((today.month, today.day) < (db.month, db.day))
+        context = {
+            'info': info,
+            'pat': pat,
+            'age':ag
+        }
         if info.status:
-            return render(request,'hospital/Patient/yourhealth.html',{'info':info,'pat':pat,'age':ag})
+            return render(request,'hospital/Patient/yourhealth.html',context)
         else:
             return redirect('edityourhealth.html')
     else:
@@ -1337,10 +1358,16 @@ def report_apt_view(request,pk):
         for k in Medicines.objects.all():
             if k==i.commodity:
                 det.append([k.name])
+    month = apt.calldate.month
+    if month == 5:
+        formatted_date = f"{apt.calldate.strftime('%b')} {apt.calldate.strftime('%d, %Y')}"
+    else:
+        formatted_date = f"{apt.calldate.strftime('%b')}. {apt.calldate.strftime('%d, %Y')}"
+    formatted_calldate = d.strftime('%b. %d, %Y')
     dict={
             'patientName':pat.firstname + " " + pat.lastname,
             'doctorName':"Dr. " + doc.lastname,
-            'aptDate':d,
+            'aptDate':formatted_date,
             'aptTime':t,
             'desc':apt.description,
             'pat_add':pat.address,
